@@ -8,7 +8,7 @@ const anthropic = new Anthropic({
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, sessionId } = await req.json()
+    const { message, sessionId, responseMode = 'default' } = await req.json()
 
     if (!message || !sessionId) {
       return NextResponse.json(
@@ -17,14 +17,62 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // Add user message to context
-    await ContextMemoryManager.addMessage(sessionId, {
-      role: 'user',
-      content: message
-    })
+    // Check if we're in local development without KV
+    const hasKVCredentials = process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
+    let recentMessages: any[] = []
 
-    // Get recent conversation history for context
-    const recentMessages = await ContextMemoryManager.getRecentMessages(sessionId, 10)
+    if (hasKVCredentials) {
+      // Production mode with memory
+      try {
+        // Add user message to context
+        await ContextMemoryManager.addMessage(sessionId, {
+          role: 'user',
+          content: message
+        })
+
+        // Get recent conversation history for context
+        recentMessages = await ContextMemoryManager.getRecentMessages(sessionId, 10)
+      } catch (error) {
+        console.warn('Memory system unavailable, continuing without context:', error)
+      }
+    } else {
+      console.log('Running in local development mode without persistent memory')
+    }
+
+    // Response control configuration
+    const responseConfig = {
+      default: {
+        max_tokens: 800,
+        temperature: 0.7,
+        guidelines: `RESPONSE GUIDELINES:
+- Keep responses concise and conversational (2-4 paragraphs max)
+- Use professional but approachable tone
+- Include specific examples from Amazon/Fidelity experience when relevant
+- Always tie responses back to business value and user impact
+- Ask follow-up questions to understand the visitor's specific needs
+- Avoid generic consulting speak - be specific about AI-UX expertise`
+      },
+      brief: {
+        max_tokens: 400,
+        temperature: 0.5,
+        guidelines: `RESPONSE GUIDELINES:
+- Keep responses extremely brief (1-2 paragraphs max)
+- Get straight to the point
+- Use bullet points when helpful
+- End with a specific question to continue the conversation`
+      },
+      detailed: {
+        max_tokens: 1200,
+        temperature: 0.8,
+        guidelines: `RESPONSE GUIDELINES:
+- Provide comprehensive, detailed responses
+- Include multiple examples and case studies
+- Break down complex concepts step-by-step
+- Use structured formatting with headers when appropriate`
+      }
+    } as const
+
+    const config = responseConfig[responseMode as keyof typeof responseConfig] || responseConfig.default
 
     // Create system prompt for TurphDesigns' specialized AI-UX consultancy
     const systemPrompt = `You are an AI assistant representing TurphDesigns, a specialized consultancy led by an experienced UX Director focused on conversational AI interfaces for financial services.
@@ -61,6 +109,8 @@ When discussing projects or opportunities, focus on:
 - Scaling digital products while maintaining user-centered design
 - The business impact of making complex financial information more accessible
 
+${config.guidelines}
+
 Be knowledgeable, professional, and enthusiastic about the transformative potential of conversational AI in financial services. Guide conversations toward how TurphDesigns' specialized expertise can solve complex UX challenges in regulated financial environments.`
 
     // Prepare messages for Claude API
@@ -78,7 +128,8 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
     // Generate response using Claude
     const response = await anthropic.messages.create({
       model: 'claude-3-5-sonnet-20241022',
-      max_tokens: 1000,
+      max_tokens: config.max_tokens,
+      temperature: config.temperature,
       system: systemPrompt,
       messages: messages
     })
@@ -87,11 +138,17 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
       ? response.content[0].text 
       : 'I apologize, but I encountered an error processing your message.'
 
-    // Add assistant response to context
-    await ContextMemoryManager.addMessage(sessionId, {
-      role: 'assistant',
-      content: assistantMessage
-    })
+    // Save assistant response to context (if memory available)
+    if (hasKVCredentials) {
+      try {
+        await ContextMemoryManager.addMessage(sessionId, {
+          role: 'assistant',
+          content: assistantMessage
+        })
+      } catch (error) {
+        console.warn('Could not save message to memory:', error)
+      }
+    }
 
     return NextResponse.json({
       message: assistantMessage,

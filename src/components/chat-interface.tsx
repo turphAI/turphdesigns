@@ -7,25 +7,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
-import { MessageSquare, Send, X, User, Bot } from 'lucide-react'
+import { Separator } from '@/components/ui/separator'
+import { MessageSquare, Send, X, User, Bot, Minimize2, Maximize2 } from 'lucide-react'
 import { useChatStore, getOrCreateSessionId } from '@/lib/chat-store'
-import { format } from 'date-fns'
-
 export default function ChatInterface() {
   const {
     messages,
     isLoading,
     sessionId,
-    isOpen,
     addMessage,
     setLoading,
-    setSessionId,
-    toggleChat,
-    closeChat
+    setSessionId
   } = useChatStore()
 
   const [input, setInput] = useState('')
-  const scrollAreaRef = useRef<HTMLDivElement>(null)
+  const [isMinimized, setIsMinimized] = useState(false)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   // Initialize session ID on mount
@@ -34,30 +31,34 @@ export default function ChatInterface() {
     setSessionId(id)
   }, [setSessionId])
 
-  // Auto-scroll to bottom when new messages arrive
+  // Auto-scroll to bottom when messages change
   useEffect(() => {
-    if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight
+    if (scrollContainerRef.current) {
+      const scrollContainer = scrollContainerRef.current
+      // Use requestAnimationFrame to ensure DOM has updated
+      requestAnimationFrame(() => {
+        scrollContainer.scrollTop = scrollContainer.scrollHeight
+      })
     }
-  }, [messages])
+  }, [messages, isLoading])
 
-  // Focus input when chat opens
+  // Focus input on mount
   useEffect(() => {
-    if (isOpen && inputRef.current) {
+    if (inputRef.current) {
       inputRef.current.focus()
     }
-  }, [isOpen])
+  }, [])
 
   const sendMessage = async () => {
     if (!input.trim() || isLoading || !sessionId) return
 
-    const userMessage = input.trim()
+    const messageToSend = input.trim()
     setInput('')
     
     // Add user message to UI
     addMessage({
       role: 'user',
-      content: userMessage
+      content: messageToSend
     })
 
     setLoading(true)
@@ -69,13 +70,30 @@ export default function ChatInterface() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: userMessage,
+          message: messageToSend,
           sessionId
         }),
       })
 
       if (!response.ok) {
-        throw new Error('Failed to send message')
+        const errorData = await response.json().catch(() => ({}))
+        let errorMessage = 'Failed to send message'
+        
+        if (response.status === 500) {
+          errorMessage = 'Server error - this might be due to insufficient Claude API credits or configuration issues'
+        } else if (response.status === 400) {
+          errorMessage = errorData.error || 'Invalid request format'
+        } else if (response.status === 401) {
+          errorMessage = 'API authentication failed - check your Claude API key'
+        }
+        
+        console.error('API Error:', {
+          status: response.status,
+          statusText: response.statusText,
+          error: errorData
+        })
+        
+        throw new Error(errorMessage)
       }
 
       const data = await response.json()
@@ -88,9 +106,11 @@ export default function ChatInterface() {
 
     } catch (error) {
       console.error('Error sending message:', error)
+      
+      // Add error message to UI
       addMessage({
         role: 'assistant',
-        content: 'I apologize, but I encountered an error. Please try again.'
+        content: `Sorry, I encountered an error: ${error instanceof Error ? error.message : 'Unknown error'}. Please check the console for details or try again.`
       })
     } finally {
       setLoading(false)
@@ -105,149 +125,150 @@ export default function ChatInterface() {
   }
 
   return (
-    <>
-      {/* Chat Toggle Button */}
-      {!isOpen && (
-        <Button
-          onClick={toggleChat}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 z-50"
-          size="icon"
+    <div className="h-full flex flex-col">
+      {/* Chat Header */}
+      <div className="p-4 border-b bg-white flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <Avatar className="h-10 w-10">
+            <AvatarFallback className="bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+              TD
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <h3 className="font-semibold text-gray-900">TurphDesigns Assistant</h3>
+            <Badge variant="outline" className="text-xs">
+              <div className="w-2 h-2 bg-green-500 rounded-full mr-1" />
+              Online
+            </Badge>
+          </div>
+        </div>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => setIsMinimized(!isMinimized)}
+          className="text-gray-500 hover:text-gray-700"
         >
-          <MessageSquare className="h-6 w-6" />
+          {isMinimized ? <Maximize2 className="h-4 w-4" /> : <Minimize2 className="h-4 w-4" />}
         </Button>
-      )}
+      </div>
 
-      {/* Chat Interface */}
-      {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-96 h-[600px] shadow-2xl z-50 flex flex-col">
-          <CardHeader className="flex flex-row items-center justify-between pb-4">
-            <div className="flex items-center space-x-2">
-              <Avatar className="h-8 w-8">
-                <AvatarFallback className="bg-primary text-primary-foreground">
-                  TD
-                </AvatarFallback>
-              </Avatar>
-              <div>
-                <CardTitle className="text-lg">TurphDesigns Assistant</CardTitle>
-                <Badge variant="outline" className="text-xs">
-                  Online
-                </Badge>
-              </div>
-            </div>
-            <Button variant="ghost" size="icon" onClick={closeChat}>
-              <X className="h-4 w-4" />
-            </Button>
-          </CardHeader>
-          
-          <CardContent className="flex-1 flex flex-col p-0">
-            {/* Messages Area */}
-            <ScrollArea className="flex-1 px-4" ref={scrollAreaRef}>
-              <div className="space-y-4 py-4">
-                {messages.length === 0 && (
-                  <div className="text-center text-muted-foreground py-8">
-                    <Bot className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                    <p className="text-sm">
-                      Hi! I&apos;m here to help you learn about TurphDesigns&apos; consulting services.
-                      How can I assist you today?
-                    </p>
-                  </div>
-                )}
-                
-                {messages.map((message) => (
-                  <div
-                    key={message.id}
-                    className={`flex ${
-                      message.role === 'user' 
-                        ? 'justify-end' 
-                        : 'justify-start'
-                    }`}
-                  >
-                    <div
-                      className={`flex max-w-[80%] ${
-                        message.role === 'user' 
-                          ? 'flex-row-reverse' 
-                          : 'flex-row'
-                      } gap-2`}
-                    >
-                      <Avatar className="h-8 w-8 flex-shrink-0">
-                        <AvatarFallback className={
-                          message.role === 'user' 
-                            ? 'bg-primary text-primary-foreground' 
-                            : 'bg-muted'
-                        }>
-                          {message.role === 'user' ? (
-                            <User className="h-4 w-4" />
-                          ) : (
-                            <Bot className="h-4 w-4" />
-                          )}
-                        </AvatarFallback>
-                      </Avatar>
-                      
-                      <div
-                        className={`rounded-lg px-3 py-2 text-sm ${
-                          message.role === 'user'
-                            ? 'bg-primary text-primary-foreground'
-                            : 'bg-muted'
-                        }`}
-                      >
-                        <p className="whitespace-pre-wrap">{message.content}</p>
-                        <p className={`text-xs mt-1 opacity-70 ${
-                          message.role === 'user' 
-                            ? 'text-primary-foreground/70' 
-                            : 'text-muted-foreground'
-                        }`}>
-                          {format(message.timestamp, 'HH:mm')}
-                        </p>
-                      </div>
+      {!isMinimized && (
+        <>
+          {/* Messages Area */}
+          <div className="flex-1 relative">
+            <div className="absolute inset-0 overflow-hidden">
+              <div ref={scrollContainerRef} className="h-full overflow-y-auto px-4 py-4">
+                <div className="space-y-4">
+                  {messages.length === 0 && (
+                    <div className="text-center text-gray-500 py-8">
+                      <MessageSquare className="h-12 w-12 mx-auto mb-4 opacity-30" />
+                      <p className="text-sm leading-relaxed">
+                        Hi! I&apos;m here to help you learn about TurphDesigns&apos; AI-UX consulting services.
+                        <br />
+                        How can I assist you today?
+                      </p>
                     </div>
-                  </div>
-                ))}
-                
-                {isLoading && (
-                  <div className="flex justify-start">
-                    <div className="flex gap-2 max-w-[80%]">
-                      <Avatar className="h-8 w-8">
-                        <AvatarFallback className="bg-muted">
-                          <Bot className="h-4 w-4" />
-                        </AvatarFallback>
-                      </Avatar>
-                      <div className="bg-muted rounded-lg px-3 py-2">
-                        <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce" />
-                          <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:0.1s]" />
-                          <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-bounce [animation-delay:0.2s]" />
+                  )}
+                  
+                  {messages.map((message) => (
+                    <div
+                      key={message.id}
+                      className={`flex ${
+                        message.role === 'user' 
+                          ? 'justify-end' 
+                          : 'justify-start'
+                      }`}
+                    >
+                      <div
+                        className={`flex max-w-[90%] ${
+                          message.role === 'user' 
+                            ? 'flex-row-reverse' 
+                            : 'flex-row'
+                        } items-start gap-2`}
+                      >
+                        <Avatar className="h-7 w-7 flex-shrink-0">
+                          <AvatarFallback className={
+                            message.role === 'user' 
+                              ? 'bg-blue-100 text-blue-600' 
+                              : 'bg-gray-100 text-gray-600'
+                          }>
+                            {message.role === 'user' ? (
+                              <User className="h-3 w-3" />
+                            ) : (
+                              <Bot className="h-3 w-3" />
+                            )}
+                          </AvatarFallback>
+                        </Avatar>
+                        
+                        <div
+                          className={`rounded-lg px-3 py-2 text-sm max-w-full ${
+                            message.role === 'user'
+                              ? 'bg-blue-600 text-white'
+                              : 'bg-gray-100 text-gray-800'
+                          }`}
+                        >
+                          <p className="whitespace-pre-wrap break-words leading-relaxed">
+                            {message.content}
+                          </p>
+                          <p className={`text-xs mt-1 opacity-70 ${
+                            message.role === 'user' 
+                              ? 'text-blue-100' 
+                              : 'text-gray-500'
+                          }`}>
+                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </p>
                         </div>
                       </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            </ScrollArea>
-            
-            {/* Input Area */}
-            <div className="border-t p-4">
-              <div className="flex space-x-2">
-                <Input
-                  ref={inputRef}
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Ask about our consulting services..."
-                  disabled={isLoading}
-                  className="flex-1"
-                />
-                <Button 
-                  onClick={sendMessage} 
-                  disabled={isLoading || !input.trim()}
-                  size="icon"
-                >
-                  <Send className="h-4 w-4" />
-                </Button>
+                  ))}
+                  
+                  {isLoading && (
+                    <div className="flex justify-start">
+                      <div className="flex gap-2 max-w-[90%]">
+                        <Avatar className="h-7 w-7 flex-shrink-0">
+                          <AvatarFallback className="bg-gray-100 text-gray-600">
+                            <Bot className="h-3 w-3" />
+                          </AvatarFallback>
+                        </Avatar>
+                        <div className="bg-gray-100 rounded-lg px-3 py-2">
+                          <div className="flex space-x-1">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" />
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0.1s]" />
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0.2s]" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+          
+          {/* Input Area */}
+          <div className="border-t bg-white p-4">
+            <div className="flex space-x-2">
+              <Input
+                ref={inputRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="Ask about our consulting services..."
+                disabled={isLoading}
+                className="flex-1 text-sm"
+              />
+              <Button 
+                onClick={sendMessage} 
+                disabled={isLoading || !input.trim()}
+                size="icon"
+                className="bg-blue-600 hover:bg-blue-700"
+              >
+                <Send className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </>
       )}
-    </>
+    </div>
   )
 } 
