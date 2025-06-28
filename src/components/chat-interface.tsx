@@ -1,15 +1,13 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { ScrollArea } from '@/components/ui/scroll-area'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
-import { MessageSquare, Send, X, User, Bot, Minimize2, Maximize2 } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
+import { Send, User, Bot, Minimize2, Maximize2, MessageSquare } from 'lucide-react'
 import { useChatStore, getOrCreateSessionId } from '@/lib/chat-store'
+
 export default function ChatInterface() {
   const {
     messages,

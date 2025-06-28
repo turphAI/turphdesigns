@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
-import { ContextMemoryManager } from '@/lib/memory'
+import { ContextMemoryManager, ConversationMessage } from '@/lib/memory'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY || '',
@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
 
     // Check if we're in local development without KV
     const hasKVCredentials = process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
-    let recentMessages: any[] = []
+    let recentMessages: ConversationMessage[] = []
 
     if (hasKVCredentials) {
       // Production mode with memory
