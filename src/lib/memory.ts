@@ -12,7 +12,7 @@ export interface ConversationContext {
   messages: ConversationMessage[]
   metadata: {
     userInfo?: string
-    preferences?: Record<string, any>
+    preferences?: Record<string, unknown>
     lastActive: Date
   }
 }

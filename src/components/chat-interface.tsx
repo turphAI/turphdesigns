@@ -147,7 +147,7 @@ export default function ChatInterface() {
                   <div className="text-center text-muted-foreground py-8">
                     <Bot className="h-12 w-12 mx-auto mb-4 opacity-50" />
                     <p className="text-sm">
-                      Hi! I'm here to help you learn about TurphDesigns' consulting services.
+                      Hi! I&apos;m here to help you learn about TurphDesigns&apos; consulting services.
                       How can I assist you today?
                     </p>
                   </div>
