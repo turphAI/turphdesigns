@@ -176,13 +176,13 @@ npm start
 ## 📞 Support
 
 For support or questions:
-- Email: hello@turphdesigns.com
+- Email: tom@turphdesigns.com
 - Use the AI chat assistant on the website
 - Create an issue in this repository
 
 ## 📄 License
 
-This project is proprietary to TurphDesigns. All rights reserved.
+This project is proprietary to TurphDesigns and turph LLC. All rights reserved.
 
 ---
 

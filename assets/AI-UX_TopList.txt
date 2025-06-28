@@ -1,0 +1,64 @@
+When I mention Project, you should interpret this as the Claude project I am working in.
+
+This document outlines my areas of interest along with entities (people and companies) to open dialogue with. It has multiple purposes, and is meant to be for creating a plan of action along with generally focusing the Claude project. As the document will evolve over time, the expectation is new information here should be taken into account when responding. 
+
+The Project, when appropriate, should reminded me to update this document. I also expect the Project will give guidance as to what section(s) should be updated.
+
+**********
+Pillars of an ideal role
+- AI first. Constructing user experiences which are 
+- Established company. They have strong product focus and a pathway to sales/revenue
+- Not an enterprise company. A small group within a large group could work, but the ideal is working in smaller product teams.
+- Tactile component. Having some physical aspect to the role is a bonus.
+- Access to end users. Not zoom, not reports from research. Face to face. In the usage environment.
+- Data centric. Experience metrics philosophy is highly important
+
+**********
+Sector interest
+General categories of business operations that interest me. This is not meant to be an absolute as the primary focus is on the problem-solution aspect of the need.
+- Finance
+- Agriculture
+- Defence
+- Security
+- Healthcare
+
+**********
+Top tier companies
+A list of companies that seem interesting at the moment.
+- Amazon
+- Palantir
+- Perplexity
+- Anthropic
+- JP Morgan
+
+Suggestion companies
+A list of companies that have been suggested or perhaps popped up on my radar. There are way more companies I have never heard of than ones I know. The Project should always be looking for companies that align to my interests and top tier companies.
+- 
+
+Toxic and regected companies
+A list of companies I do not respect or want nothing to do with. They should always be omitted from any Project responses.
+- X or Twitter
+- Facebook
+
+**********
+People to contact
+This is a simple list of individuals to contact. These indivuals should be on the Connections2.csv file and if they are not the Project should say this when their name comes up in the response. Once people are contacted, their name should be removed from the list and meeting notes documented elsewhere in the Project.
+- Brian Saltzman
+- Jason Kim
+- Shawn Henry
+- Stefan Haney
+- Michael Stevens
+
+Second grouping
+- David Eisner
+- Alex Kalinin
+- Minal Mehta
+- Jean-Luc Nahon
+- Lauren Gray
+
+Third grouping
+- Dave Morris
+- Jay Patrikios
+- Karl Jayne
+- Joel Brazle
+- Michal Vydrzel

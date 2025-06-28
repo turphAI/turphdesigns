@@ -5,14 +5,25 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TurphDesigns - Modern Consulting for Digital Excellence",
-  description: "Strategic consulting services for digital transformation, technology implementation, and business optimization. Transform your business with expert guidance.",
-  keywords: ["consulting", "digital transformation", "technology", "business optimization", "strategy"],
+  title: "TurphDesigns - AI-First UX Leadership for Financial Innovation",
+  description: "Specialized UX Director with proven experience scaling financial products to $250M+ revenue. Leading the transformation from traditional interfaces to conversational AI experiences that make complex financial data accessible.",
+  keywords: [
+    "conversational AI interfaces", 
+    "financial services UX", 
+    "AI-powered financial interfaces", 
+    "financial data visualization", 
+    "UX director", 
+    "product scaling", 
+    "Amazon ProductAds", 
+    "Fidelity UX",
+    "structured data interfaces",
+    "AI-first design"
+  ],
   authors: [{ name: "TurphDesigns" }],
   creator: "TurphDesigns",
   openGraph: {
-    title: "TurphDesigns - Modern Consulting for Digital Excellence",
-    description: "Strategic consulting services for digital transformation, technology implementation, and business optimization.",
+    title: "TurphDesigns - AI-First UX Leadership for Financial Innovation",
+    description: "Pioneering conversational AI interfaces for financial services. Proven track record scaling products from 0 to $250M revenue at Amazon and leading AI-powered experiences at Fidelity.",
     url: "https://turphdesigns.com",
     siteName: "TurphDesigns",
     locale: "en_US",
@@ -20,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TurphDesigns - Modern Consulting for Digital Excellence",
-    description: "Strategic consulting services for digital transformation, technology implementation, and business optimization.",
+    title: "TurphDesigns - AI-First UX Leadership for Financial Innovation",
+    description: "Specialized UX Director pioneering conversational AI interfaces for financial services. Making complex financial data accessible through natural language interactions.",
     creator: "@turphdesigns",
   },
   robots: {
