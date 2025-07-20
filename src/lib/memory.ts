@@ -1,4 +1,5 @@
 import { kv } from '@vercel/kv'
+import { ConversationAnalytics } from './analytics'
 
 export interface ConversationMessage {
   id: string
@@ -10,10 +11,15 @@ export interface ConversationMessage {
 export interface ConversationContext {
   sessionId: string
   messages: ConversationMessage[]
+  analytics?: ConversationAnalytics
   metadata: {
     userInfo?: string
     preferences?: Record<string, unknown>
     lastActive: Date
+    sessionStartTime: Date
+    ipLocation?: string
+    referralSource?: string
+    cardTriggered?: string
   }
 }
 
@@ -24,12 +30,15 @@ export class ContextMemoryManager {
   /**
    * Create a new conversation session
    */
-  static async createSession(sessionId: string): Promise<ConversationContext> {
+  static async createSession(sessionId: string, cardTriggered?: string): Promise<ConversationContext> {
+    const now = new Date()
     const context: ConversationContext = {
       sessionId,
       messages: [],
       metadata: {
-        lastActive: new Date()
+        lastActive: now,
+        sessionStartTime: now,
+        cardTriggered
       }
     }
 
@@ -73,12 +82,18 @@ export class ContextMemoryManager {
    */
   static async addMessage(
     sessionId: string,
-    message: Omit<ConversationMessage, 'id' | 'timestamp'>
+    message: Omit<ConversationMessage, 'id' | 'timestamp'>,
+    cardTriggered?: string
   ): Promise<ConversationContext | null> {
     let context = await this.getSession(sessionId)
     
     if (!context) {
-      context = await this.createSession(sessionId)
+      context = await this.createSession(sessionId, cardTriggered)
+    }
+    
+    // Ensure sessionStartTime exists for backwards compatibility
+    if (!context.metadata.sessionStartTime) {
+      context.metadata.sessionStartTime = new Date()
     }
 
     const newMessage: ConversationMessage = {
@@ -123,6 +138,30 @@ export class ContextMemoryManager {
 
     context.metadata = { ...context.metadata, ...metadata }
     await this.saveSession(context)
+  }
+
+  /**
+   * Update conversation analytics
+   */
+  static async updateAnalytics(
+    sessionId: string,
+    analytics: ConversationAnalytics
+  ): Promise<void> {
+    const context = await this.getSession(sessionId)
+    if (!context) return
+
+    context.analytics = analytics
+    await this.saveSession(context)
+  }
+
+  /**
+   * Get sessions with high quality scores for reporting
+   */
+  static async getHighQualitySessions(limit: number = 10): Promise<ConversationContext[]> {
+    // Note: This is a simplified implementation
+    // In production, you'd want to maintain an index of high-quality sessions
+    // For now, this returns empty array but shows the intended interface
+    return []
   }
 
   /**

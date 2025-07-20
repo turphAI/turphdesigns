@@ -47,7 +47,7 @@ export default function ChatInterface() {
     }
   }, [])
 
-  const sendMessage = async () => {
+  const sendMessage = async (cardTriggered?: string) => {
     if (!input.trim() || isLoading || !sessionId) return
 
     const messageToSend = input.trim()
@@ -69,7 +69,8 @@ export default function ChatInterface() {
         },
         body: JSON.stringify({
           message: messageToSend,
-          sessionId
+          sessionId,
+          cardTriggered
         }),
       })
 
@@ -256,7 +257,7 @@ export default function ChatInterface() {
                 className="flex-1 text-sm"
               />
               <Button 
-                onClick={sendMessage} 
+                onClick={() => sendMessage()} 
                 disabled={isLoading || !input.trim()}
                 size="icon"
                 className="bg-blue-600 hover:bg-blue-700"

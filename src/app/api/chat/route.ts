@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import { ContextMemoryManager, ConversationMessage } from '@/lib/memory'
+import { ConversationAnalyzer } from '@/lib/analytics'
+import { NotificationService } from '@/lib/notifications'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY || '',
@@ -8,7 +10,7 @@ const anthropic = new Anthropic({
 
 export async function POST(req: NextRequest) {
   try {
-    const { message, sessionId, responseMode = 'default' } = await req.json()
+    const { message, sessionId, responseMode = 'default', cardTriggered } = await req.json()
 
     if (!message || !sessionId) {
       return NextResponse.json(
@@ -28,7 +30,7 @@ export async function POST(req: NextRequest) {
         await ContextMemoryManager.addMessage(sessionId, {
           role: 'user',
           content: message
-        })
+        }, cardTriggered)
 
         // Get recent conversation history for context
         recentMessages = await ContextMemoryManager.getRecentMessages(sessionId, 10)
@@ -141,10 +143,30 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
     // Save assistant response to context (if memory available)
     if (hasKVCredentials) {
       try {
-        await ContextMemoryManager.addMessage(sessionId, {
+        const updatedContext = await ContextMemoryManager.addMessage(sessionId, {
           role: 'assistant',
           content: assistantMessage
         })
+
+        // Analyze conversation and process notifications
+        if (updatedContext) {
+          const analytics = ConversationAnalyzer.analyzeConversation(
+            updatedContext.messages,
+            updatedContext.metadata.sessionStartTime,
+            cardTriggered
+          )
+
+          // Save analytics to context
+          await ContextMemoryManager.updateAnalytics(sessionId, analytics)
+
+          // Process notifications
+          await NotificationService.processConversation(updatedContext, analytics)
+
+          // Log analytics for development
+          console.log(`📊 Conversation Analytics:`)
+          console.log(`Session: ${sessionId}`)
+          console.log(`Summary: ${ConversationAnalyzer.generateSummary(analytics)}`)
+        }
       } catch (error) {
         console.warn('Could not save message to memory:', error)
       }
