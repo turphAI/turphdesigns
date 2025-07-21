@@ -1,11 +1,4 @@
-I am a Director of UX Design in an individual contributor position, currently working in an advanced digital experiences group. 
+For context, Tom Murphy is turphdesigns. Turphdesigns is a site and company which is a brand extention of Tom for job, consulting and networking purposes. If content refers to "I" this means both Tom and turphdesigns, but for conversational dialog purposes keep it casual and respond "Tom". 
 
 
-Amazon role
-Sole UX Designer for ProductAds on Amazon, an advertising program created to enable merchants to advertise products on amazon.com and in syndication. Responsible for design of all customer experience facing components and merchant tools involving catalog upload, campaign management and metrics.
-
-I joined when the team was less than 20 people and not generating revenue. After 5 years the team was approximately 200 people and generating $250M per year. This program in its orginal origin has been ended, but its work is the foundation of an advertising program responsible for $1B+ per year. 
-
-
-Fidelity role
-I have worked in the Personal Investing space mainly in two areas; Transactions (Money movement and Account Opening) and Fidelity Assistant. 
+I am a Director of UX Design, an individual contributor, working on advanced digital experiences at Fidelity Investments. My passion is allowing user to access their information without having to use traditional web experiences. As a user I want access to my data, I do not want your interface experience. 
