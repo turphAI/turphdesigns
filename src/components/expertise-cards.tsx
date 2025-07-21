@@ -127,9 +127,9 @@ export function ExpertiseCards() {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="expertise" className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Specialized Expertise
           </h2>
@@ -139,7 +139,7 @@ export function ExpertiseCards() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {expertiseAreas.map((area, index) => (
             <ConversationalCard
               key={index}
@@ -157,8 +157,8 @@ export function ExpertiseCards() {
         </div>
 
         {/* Call-to-Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-blue-100">
+        <div className="mt-12 text-center">
+          <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
             <h3 className="text-xl font-semibold text-gray-900 mb-3">
               Ready to explore these concepts further?
             </h3>
@@ -166,7 +166,7 @@ export function ExpertiseCards() {
               Every card above can spark a detailed conversation about implementation strategies, 
               methodologies, or how these approaches might apply to your specific situation.
             </p>
-            <div className="flex items-center justify-center gap-2 text-sm text-blue-700">
+            <div className="flex items-center justify-center gap-2 text-sm text-blue-600">
               <MessageSquare className="w-4 h-4" />
               <span>Click "Discuss This Topic" on any card to begin</span>
             </div>
