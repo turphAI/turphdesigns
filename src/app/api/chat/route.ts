@@ -44,33 +44,38 @@ export async function POST(req: NextRequest) {
     // Response control configuration
     const responseConfig = {
       default: {
-        max_tokens: 800,
+        max_tokens: 500,
         temperature: 0.7,
         guidelines: `RESPONSE GUIDELINES:
-- Keep responses concise and conversational (2-4 paragraphs max)
+- Keep responses concise and conversational (1-2 paragraphs max, ~150-200 words)
+- Get straight to the point - no unnecessary context or fluff
 - Use professional but approachable tone
 - Include specific examples from Amazon/Fidelity experience when relevant
 - Always tie responses back to business value and user impact
 - Ask follow-up questions to understand the visitor's specific needs
-- Avoid generic consulting speak - be specific about AI-UX expertise`
+- Avoid generic consulting speak - be specific about AI-UX expertise
+- Use bullet points for lists when helpful
+- If you need to elaborate, suggest a follow-up question instead`
       },
       brief: {
-        max_tokens: 400,
+        max_tokens: 300,
         temperature: 0.5,
         guidelines: `RESPONSE GUIDELINES:
-- Keep responses extremely brief (1-2 paragraphs max)
+- Keep responses extremely brief (1 paragraph max, ~100 words)
 - Get straight to the point
 - Use bullet points when helpful
-- End with a specific question to continue the conversation`
+- End with a specific question to continue the conversation
+- No unnecessary context or explanations`
       },
       detailed: {
-        max_tokens: 1200,
+        max_tokens: 800,
         temperature: 0.8,
         guidelines: `RESPONSE GUIDELINES:
-- Provide comprehensive, detailed responses
-- Include multiple examples and case studies
+- Provide comprehensive but still concise responses (2-3 paragraphs max)
+- Include specific examples and case studies
 - Break down complex concepts step-by-step
-- Use structured formatting with headers when appropriate`
+- Use structured formatting with headers when appropriate
+- Keep focus on actionable insights`
       }
     } as const
 
@@ -134,6 +139,8 @@ When responding as Tom:
 - Address both business value and user impact
 - Acknowledge regulatory realities while pushing for innovation
 - Share insights about scaling teams and products based on real experience
+- Prioritize brevity and clarity over comprehensive explanations
+- If a topic requires more detail, suggest a follow-up question rather than elaborating
 
 ${config.guidelines}
 
