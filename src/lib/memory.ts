@@ -157,6 +157,7 @@ export class ContextMemoryManager {
   /**
    * Get sessions with high quality scores for reporting
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   static async getHighQualitySessions(_limit: number = 10): Promise<ConversationContext[]> {
     // Note: This is a simplified implementation
     // In production, you'd want to maintain an index of high-quality sessions

@@ -49,7 +49,7 @@ export function ConversationalCard({
   content,
   category = 'default',
   chatContext,
-  discussPrompt,
+  discussPrompt: _discussPrompt,
   tags = [],
   onDiscuss,
   className

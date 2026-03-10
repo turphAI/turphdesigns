@@ -106,6 +106,7 @@ export class NotificationService {
   private static generateMessage(
     context: ConversationContext,
     analytics: ConversationAnalytics,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _triggers: NotificationTriggers
   ): string {
     const lines = []
