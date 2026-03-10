@@ -1,6 +1,6 @@
 'use client'
 
-import { ConversationalCard, cardPresets, createPresetCard } from '@/components/conversational-card'
+import { ConversationalCard, createPresetCard } from '@/components/conversational-card'
 import { useChatIntegrationWithPreset } from '@/hooks/use-chat-integration'
 import ChatInterface from '@/components/chat-interface'
 
@@ -29,7 +29,7 @@ export default function CardsDemo() {
             </p>
             <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
               <p className="text-sm text-blue-800">
-                <strong>💡 Try it:</strong> Click the "Discuss This Topic" button on any card to start a contextual conversation
+                <strong>Try it:</strong> Click the &quot;Discuss This Topic&quot; button on any card to start a contextual conversation
               </p>
             </div>
           </div>
@@ -51,7 +51,7 @@ export default function CardsDemo() {
                   <div className="bg-blue-50 p-3 rounded-lg border border-blue-100">
                     <p className="text-sm text-blue-800 font-medium">Key Achievement</p>
                     <p className="text-sm text-blue-700">
-                      Foundation work that enabled Amazon's advertising program to grow beyond $1B annually
+                      Foundation work that enabled Amazon&apos;s advertising program to grow beyond $1B annually
                     </p>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export default function CardsDemo() {
               content={
                 <div className="space-y-3">
                   <p className="text-gray-700">
-                    We're witnessing a fundamental transformation in how users interact with complex systems. 
+                    We&apos;re witnessing a fundamental transformation in how users interact with complex systems. 
                     The rigid navigation patterns of today will give way to adaptive, conversational experiences 
                     that understand context and intent.
                   </p>

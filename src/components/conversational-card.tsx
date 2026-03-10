@@ -49,7 +49,8 @@ export function ConversationalCard({
   content,
   category = 'default',
   chatContext,
-  discussPrompt: _discussPrompt,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  discussPrompt,
   tags = [],
   onDiscuss,
   className
