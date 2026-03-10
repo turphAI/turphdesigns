@@ -288,6 +288,17 @@ export default function HomeV2() {
               Whether you&apos;re exploring conversational AI for your product, navigating UX in financial
               services, or scaling a design team — I&apos;d love to hear what you&apos;re working on.
             </p>
+            <a href="https://calendly.com/turph"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="font-body inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-base font-medium transition-opacity hover:opacity-80 mb-10"
+               style={{
+                 backgroundColor: 'var(--warm-text)',
+                 color: 'var(--warm-bg)',
+               }}>
+              Book a Meeting
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a href="mailto:turphs.ai@gmail.com"
                  className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
