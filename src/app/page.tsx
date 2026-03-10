@@ -1,5 +1,6 @@
 import { Nav } from '@/components/v2/nav'
 import { PageWithParallaxBg, HeroSection } from '@/components/v2/parallax-hero'
+import { EmbeddedChat } from '@/components/v2/embedded-chat'
 import { ArrowUpRight } from 'lucide-react'
 
 export default function HomeV2() {
@@ -266,41 +267,8 @@ export default function HomeV2() {
                 I&apos;ve built an AI assistant trained on my experience, methodology, and perspective.
                 It&apos;s a different way to explore what I do — through conversation, not slides.
               </p>
-              {/* Chat embed placeholder */}
-              <div className="rounded-2xl p-8 md:p-12 text-left"
-                   style={{
-                     backgroundColor: 'var(--warm-bg)',
-                     border: '1px solid var(--warm-border)',
-                   }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: 'var(--warm-accent)' }} />
-                  <span className="font-body text-sm" style={{ color: 'var(--warm-text-muted)' }}>
-                    AI Assistant &middot; Ready
-                  </span>
-                </div>
-                <p className="font-body text-base leading-relaxed mb-6"
-                   style={{ color: 'var(--warm-text-secondary)' }}>
-                  Try asking about conversational AI strategy, my experience scaling products at Amazon,
-                  or how I approach UX in regulated financial environments.
-                </p>
-                <div className="flex gap-3">
-                  <div className="flex-1 rounded-xl px-5 py-3.5 font-body text-sm"
-                       style={{
-                         backgroundColor: 'var(--warm-surface)',
-                         border: '1px solid var(--warm-border)',
-                         color: 'var(--warm-text-muted)',
-                       }}>
-                    Ask me something...
-                  </div>
-                  <button className="rounded-xl px-5 py-3.5 font-body text-sm font-medium transition-opacity hover:opacity-70"
-                          style={{
-                            backgroundColor: 'var(--warm-text)',
-                            color: 'var(--warm-bg)',
-                          }}>
-                    Send
-                  </button>
-                </div>
-              </div>
+              {/* Live chat component */}
+              <EmbeddedChat />
             </div>
           </div>
         </section>
