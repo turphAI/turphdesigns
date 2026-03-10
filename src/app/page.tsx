@@ -48,7 +48,7 @@ export default function HomeV2() {
                 Where I&apos;ve Built
               </p>
               <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight">
-                Products that scaled from<br className="hidden md:block" />
+                Products that scaled from{' '}<br className="hidden md:block" />
                 zero to hundreds of millions.
               </h2>
             </div>
@@ -149,7 +149,7 @@ export default function HomeV2() {
                 How I Think
               </p>
               <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight max-w-2xl">
-                Design that starts with<br className="hidden md:block" />
+                Design that starts with{' '}<br className="hidden md:block" />
                 understanding, not assumptions.
               </h2>
             </div>
