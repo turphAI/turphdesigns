@@ -89,7 +89,7 @@ export function EmbeddedChat() {
       {/* Status bar */}
       <div className="flex items-center gap-3 px-6 pt-5 pb-3">
         <div className="w-2 h-2 rounded-full"
-             style={{ backgroundColor: 'var(--warm-accent)' }} />
+             style={{ backgroundColor: '#5B8A7A' }} />
         <span className="font-body text-sm"
               style={{ color: 'var(--warm-text-muted)' }}>
           AI Assistant &middot; Ready
