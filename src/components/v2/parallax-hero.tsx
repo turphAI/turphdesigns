@@ -106,7 +106,7 @@ export function HeroSection() {
           className="font-body text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto"
           style={{ color: 'var(--warm-text)' }}
         >
-          UX Director &middot; Amazon &middot; Fidelity Investments
+          Product Designer &middot; 25+ Years of Experience
         </p>
 
         <a
