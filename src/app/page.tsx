@@ -55,21 +55,21 @@ export default function HomeV2() {
               <div className="grid grid-cols-1 md:grid-cols-[320px_1fr]">
                 {/* Left — identity panel */}
                 <div className="p-10 md:p-12 flex flex-col justify-between"
-                     style={{ backgroundColor: 'var(--warm-dark)' }}>
+                     style={{ backgroundColor: '#C49A3C' }}>
                   <div>
                     <span className="font-serif-display text-2xl md:text-3xl font-medium block mb-2"
-                          style={{ color: '#FAF8F5' }}>
+                          style={{ color: '#FFFDF7' }}>
                       Tom Murphy
                     </span>
                     <span className="font-body text-sm tracking-widest uppercase"
-                          style={{ color: 'var(--warm-text-muted)' }}>
+                          style={{ color: 'rgba(255, 253, 247, 0.7)' }}>
                       TurphDesigns
                     </span>
                   </div>
                   <div className="mt-10 pt-8"
-                       style={{ borderTop: '1px solid var(--warm-dark-surface)' }}>
+                       style={{ borderTop: '1px solid rgba(255, 253, 247, 0.25)' }}>
                     <p className="font-body text-sm leading-relaxed"
-                       style={{ color: 'var(--warm-text-muted)' }}>
+                       style={{ color: 'rgba(255, 253, 247, 0.7)' }}>
                       Product Designer<br />
                       25+ Years of Experience
                     </p>
