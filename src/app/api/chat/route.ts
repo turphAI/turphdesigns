@@ -160,7 +160,7 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
 
     // Generate response using Claude
     const response = await anthropic.messages.create({
-      model: 'claude-3-7-sonnet-latest',
+      model: 'claude-sonnet-4-20250514',
       max_tokens: config.max_tokens,
       temperature: config.temperature,
       system: systemPrompt,
