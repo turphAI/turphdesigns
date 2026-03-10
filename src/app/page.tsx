@@ -36,6 +36,38 @@ export default function HomeV2() {
         </section>
 
         {/* ════════════════════════════════════════════
+            FULL BLOCK: Meet Tom
+            Opaque, edge-to-edge — the human behind the brand.
+            ════════════════════════════════════════════ */}
+        <section className="v2-section px-6 lg:px-8"
+                 style={{ backgroundColor: 'var(--warm-bg)' }}>
+          <div className="max-w-[800px] mx-auto">
+            <p className="font-body text-sm tracking-widest uppercase mb-4"
+               style={{ color: 'var(--warm-accent)' }}>
+              The Person Behind TurphDesigns
+            </p>
+            <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
+              I&apos;m Tom Murphy.
+            </h2>
+            <div className="space-y-6">
+              <p className="font-body text-base md:text-lg leading-relaxed"
+                 style={{ color: 'var(--warm-text-secondary)' }}>
+                Whether you&apos;re exploring conversational AI for your product, navigating UX in
+                financial services, or scaling a design team — I&apos;ve probably been in those
+                trenches. For over 25 years I&apos;ve been designing products that put people first,
+                from founding the UX practice at Amazon ProductAds to directing AI-powered
+                experiences at Fidelity Investments.
+              </p>
+              <p className="font-body text-base md:text-lg leading-relaxed"
+                 style={{ color: 'var(--warm-text-secondary)' }}>
+                TurphDesigns is where I share that thinking — through consulting, conversation,
+                and the belief that the best interfaces don&apos;t feel like interfaces at all.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════
             FULL BLOCK: Work / Experience
             Opaque, edge-to-edge — covers the illustration.
             ════════════════════════════════════════════ */}
