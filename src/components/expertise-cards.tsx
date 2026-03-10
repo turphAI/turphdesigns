@@ -4,10 +4,9 @@ import React from 'react'
 import { ConversationalCard } from './conversational-card'
 import { useChatIntegrationWithPreset } from '@/hooks/use-chat-integration'
 import { 
-  MessageSquare, 
-  Building2, 
+  MessageSquare,
+  Building2,
   Brain,
-  Briefcase,
   TrendingUp
 } from "lucide-react"
 
@@ -81,7 +80,7 @@ export function ExpertiseCards() {
       content: (
         <div className="space-y-3">
           <p className="text-gray-700">
-            The challenge isn't just displaying data—it's presenting the right information at the right time 
+            The challenge isn&apos;t just displaying data—it&apos;s presenting the right information at the right time 
             in a way that helps users make confident decisions without overwhelming them.
           </p>
           <ul className="space-y-2 text-sm text-gray-600">
@@ -112,7 +111,7 @@ export function ExpertiseCards() {
       content: (
         <div className="space-y-3">
           <p className="text-gray-700">
-            Scaling a product isn't just about handling more users—it's about evolving processes, systems, 
+            Scaling a product isn&apos;t just about handling more users—it&apos;s about evolving processes, systems, 
             and team structures while maintaining the quality and vision that made the product successful initially.
           </p>
           <div className="bg-purple-50 p-3 rounded-lg border border-purple-100">
@@ -168,7 +167,7 @@ export function ExpertiseCards() {
             </p>
             <div className="flex items-center justify-center gap-2 text-sm text-blue-600">
               <MessageSquare className="w-4 h-4" />
-              <span>Click "Discuss This Topic" on any card to begin</span>
+              <span>Click &quot;Discuss This Topic&quot; on any card to begin</span>
             </div>
           </div>
         </div>

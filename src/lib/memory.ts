@@ -157,7 +157,7 @@ export class ContextMemoryManager {
   /**
    * Get sessions with high quality scores for reporting
    */
-  static async getHighQualitySessions(limit: number = 10): Promise<ConversationContext[]> {
+  static async getHighQualitySessions(_limit: number = 10): Promise<ConversationContext[]> {
     // Note: This is a simplified implementation
     // In production, you'd want to maintain an index of high-quality sessions
     // For now, this returns empty array but shows the intended interface

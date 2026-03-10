@@ -106,7 +106,7 @@ export class NotificationService {
   private static generateMessage(
     context: ConversationContext,
     analytics: ConversationAnalytics,
-    triggers: NotificationTriggers
+    _triggers: NotificationTriggers
   ): string {
     const lines = []
 

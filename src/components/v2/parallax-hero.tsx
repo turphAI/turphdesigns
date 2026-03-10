@@ -14,18 +14,6 @@ import { useState, useEffect, ReactNode } from 'react'
  * This creates the gallery-like rhythm seen on simile.ai.
  */
 export function PageWithParallaxBg({ children }: { children: ReactNode }) {
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      requestAnimationFrame(() => {
-        setScrollY(window.scrollY)
-      })
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <div className="relative min-h-screen">
       {/* Persistent parallax background — the illustration */}
