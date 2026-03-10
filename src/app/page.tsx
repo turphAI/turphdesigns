@@ -55,21 +55,21 @@ export default function HomeV2() {
               <div className="grid grid-cols-1 md:grid-cols-[320px_1fr]">
                 {/* Left — identity panel */}
                 <div className="p-10 md:p-12 flex flex-col justify-between"
-                     style={{ backgroundColor: '#C49A3C' }}>
+                     style={{ backgroundColor: '#8F702B' }}>
                   <div>
                     <span className="font-serif-display text-2xl md:text-3xl font-medium block mb-2"
                           style={{ color: '#FFFDF7' }}>
                       Tom Murphy
                     </span>
                     <span className="font-body text-sm tracking-widest uppercase"
-                          style={{ color: 'rgba(255, 253, 247, 0.7)' }}>
+                          style={{ color: '#FFFDF7' }}>
                       TurphDesigns
                     </span>
                   </div>
                   <div className="mt-10 pt-8"
-                       style={{ borderTop: '1px solid rgba(255, 253, 247, 0.25)' }}>
+                       style={{ borderTop: '1px solid rgba(255, 253, 247, 0.2)' }}>
                     <p className="font-body text-sm leading-relaxed"
-                       style={{ color: 'rgba(255, 253, 247, 0.7)' }}>
+                       style={{ color: '#FFFDF7' }}>
                       Product Designer<br />
                       25+ Years of Experience
                     </p>
@@ -190,7 +190,7 @@ export default function HomeV2() {
                 conversation — natural, adaptive, human.&rdquo;
               </blockquote>
               <div className="mt-10 font-body text-sm tracking-widest uppercase"
-                   style={{ color: 'var(--warm-text-muted)' }}>
+                   style={{ color: '#C4BFB8' }}>
                 Turph &middot; Director of UX Design
               </div>
             </div>
@@ -295,7 +295,7 @@ export default function HomeV2() {
                        backgroundColor: 'var(--warm-dark)',
                        minHeight: '240px',
                      }}>
-                  <p className="font-body text-sm italic" style={{ color: 'var(--warm-text-muted)' }}>
+                  <p className="font-body text-sm italic" style={{ color: '#A39E98' }}>
                     Visual: Security and openness coexisting in regulated design
                   </p>
                 </div>
@@ -382,7 +382,7 @@ export default function HomeV2() {
         <footer className="px-6 lg:px-8 py-12"
                 style={{
                   backgroundColor: 'var(--warm-dark)',
-                  color: 'var(--warm-text-muted)',
+                  color: '#A39E98',
                 }}>
           <div className="max-w-[1100px] mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
@@ -391,7 +391,7 @@ export default function HomeV2() {
                       style={{ color: '#FAF8F5' }}>
                   TurphDesigns.
                 </span>
-                <p className="font-body text-sm" style={{ color: 'var(--warm-text-muted)' }}>
+                <p className="font-body text-sm" style={{ color: '#A39E98' }}>
                   Designing the future of human-AI conversation.
                 </p>
               </div>
