@@ -224,6 +224,31 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
  * Includes backdrop overlay and drag-to-close handle.
  */
 function ChatSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [mounted, setMounted] = useState(false)
+  const [animateIn, setAnimateIn] = useState(false)
+
+  // Mount on first open, then animate in
+  useEffect(() => {
+    if (isOpen) {
+      setMounted(true)
+      // Small delay so the DOM renders at translate-y-full first, then slides up
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setAnimateIn(true)
+        })
+      })
+    } else {
+      setAnimateIn(false)
+    }
+  }, [isOpen])
+
+  // Unmount after close animation completes
+  const handleTransitionEnd = () => {
+    if (!isOpen) {
+      setMounted(false)
+    }
+  }
+
   // Lock body scroll when sheet is open
   useEffect(() => {
     if (isOpen) {
@@ -234,28 +259,33 @@ function ChatSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
     return () => { document.body.style.overflow = '' }
   }, [isOpen])
 
+  if (!mounted) return null
+
   return (
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-50 transition-opacity duration-300 ${
-          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        style={{ backgroundColor: 'rgba(26, 26, 26, 0.4)' }}
+        className="fixed inset-0 z-50 transition-opacity duration-300"
+        style={{
+          backgroundColor: 'rgba(26, 26, 26, 0.4)',
+          opacity: animateIn ? 1 : 0,
+          pointerEvents: animateIn ? 'auto' : 'none',
+        }}
         onClick={onClose}
       />
 
       {/* Sheet */}
       <div
-        className={`fixed inset-x-0 bottom-0 z-50 flex flex-col transition-transform duration-300 ease-out ${
-          isOpen ? 'translate-y-0' : 'translate-y-full'
-        }`}
+        className="fixed inset-x-0 bottom-0 z-50 flex flex-col"
         style={{
           backgroundColor: 'var(--warm-bg)',
           borderRadius: '24px 24px 0 0',
           maxHeight: '85vh',
           boxShadow: '0 -4px 24px rgba(0, 0, 0, 0.12)',
+          transform: animateIn ? 'translateY(0)' : 'translateY(100%)',
+          transition: 'transform 0.35s cubic-bezier(0.32, 0.72, 0, 1)',
         }}
+        onTransitionEnd={handleTransitionEnd}
       >
         {/* Handle + close bar */}
         <div className="flex items-center justify-between px-6 pt-3 pb-1">
