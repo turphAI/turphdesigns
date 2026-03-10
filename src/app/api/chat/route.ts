@@ -160,7 +160,7 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
 
     // Generate response using Claude
     const response = await anthropic.messages.create({
-      model: 'claude-3-5-sonnet-20241022',
+      model: 'claude-sonnet-4-5-20250514',
       max_tokens: config.max_tokens,
       temperature: config.temperature,
       system: systemPrompt,
@@ -209,9 +209,10 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
     })
 
   } catch (error) {
-    console.error('Chat API error:', error)
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    console.error('Chat API error:', errorMessage, error)
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Internal server error', detail: errorMessage },
       { status: 500 }
     )
   }
