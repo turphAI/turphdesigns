@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -67,7 +68,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${playfair.variable} ${dmSans.variable}`}>{children}</body>
+      <body className={`${inter.className} ${playfair.variable} ${dmSans.variable}`}>
+        {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2NSF2ZPEZP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2NSF2ZPEZP');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
