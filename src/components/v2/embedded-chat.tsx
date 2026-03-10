@@ -1,17 +1,16 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { Send, Bot, User } from 'lucide-react'
+import { useState, useRef, useEffect, useCallback } from 'react'
+import { Send, Bot, User, MessageCircle, X } from 'lucide-react'
 import { useChatStore, getOrCreateSessionId } from '@/lib/chat-store'
 
 /**
- * EmbeddedChat
+ * ChatBody
  *
- * A warm, editorial-styled chat component designed to live
- * inside the page flow (not a sidebar). Uses the same Zustand
- * store and API endpoint as the original ChatInterface.
+ * The core chat UI — messages, input, status bar.
+ * Reused by both inline embed (md+) and bottom sheet (mobile).
  */
-export function EmbeddedChat() {
+function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
   const {
     messages,
     isLoading,
@@ -40,6 +39,13 @@ export function EmbeddedChat() {
       })
     }
   }, [messages, isLoading])
+
+  // Auto-focus input when sheet opens
+  useEffect(() => {
+    if (variant === 'sheet' && inputRef.current) {
+      setTimeout(() => inputRef.current?.focus(), 300)
+    }
+  }, [variant])
 
   const sendMessage = async () => {
     if (!input.trim() || isLoading || !sessionId) return
@@ -80,12 +86,10 @@ export function EmbeddedChat() {
     }
   }
 
+  const isSheet = variant === 'sheet'
+
   return (
-    <div className="rounded-2xl overflow-hidden text-left"
-         style={{
-           backgroundColor: 'var(--warm-bg)',
-           border: '1px solid var(--warm-border)',
-         }}>
+    <>
       {/* Status bar */}
       <div className="flex items-center gap-3 px-6 pt-5 pb-3">
         <div className="w-2 h-2 rounded-full"
@@ -98,8 +102,11 @@ export function EmbeddedChat() {
 
       {/* Messages area */}
       <div ref={scrollRef}
-           className="px-6 overflow-y-auto"
-           style={{ maxHeight: '360px', minHeight: '120px' }}>
+           className="px-6 overflow-y-auto flex-1"
+           style={{
+             maxHeight: isSheet ? 'none' : '360px',
+             minHeight: isSheet ? '0' : '120px',
+           }}>
         {messages.length === 0 ? (
           <p className="font-body text-base leading-relaxed py-4"
              style={{ color: 'var(--warm-text-secondary)' }}>
@@ -205,6 +212,121 @@ export function EmbeddedChat() {
           </button>
         </div>
       </div>
-    </div>
+    </>
+  )
+}
+
+
+/**
+ * ChatSheet
+ *
+ * Bottom sheet that slides up on mobile with the chat experience.
+ * Includes backdrop overlay and drag-to-close handle.
+ */
+function ChatSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  // Lock body scroll when sheet is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [isOpen])
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className={`fixed inset-0 z-50 transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        style={{ backgroundColor: 'rgba(26, 26, 26, 0.4)' }}
+        onClick={onClose}
+      />
+
+      {/* Sheet */}
+      <div
+        className={`fixed inset-x-0 bottom-0 z-50 flex flex-col transition-transform duration-300 ease-out ${
+          isOpen ? 'translate-y-0' : 'translate-y-full'
+        }`}
+        style={{
+          backgroundColor: 'var(--warm-bg)',
+          borderRadius: '24px 24px 0 0',
+          maxHeight: '85vh',
+          boxShadow: '0 -4px 24px rgba(0, 0, 0, 0.12)',
+        }}
+      >
+        {/* Handle + close bar */}
+        <div className="flex items-center justify-between px-6 pt-3 pb-1">
+          <div className="w-10 h-1 rounded-full mx-auto"
+               style={{ backgroundColor: 'var(--warm-border)' }} />
+        </div>
+        <div className="flex items-center justify-between px-6 pb-2">
+          <span className="font-serif-display text-lg font-medium"
+                style={{ color: 'var(--warm-text)' }}>
+            Ask me anything
+          </span>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 rounded-full flex items-center justify-center transition-opacity hover:opacity-60"
+            style={{ backgroundColor: 'var(--warm-border)' }}
+          >
+            <X className="w-4 h-4" style={{ color: 'var(--warm-text-secondary)' }} />
+          </button>
+        </div>
+
+        {/* Chat body fills remaining space */}
+        <div className="flex flex-col flex-1 overflow-hidden">
+          <ChatBody variant="sheet" />
+        </div>
+      </div>
+    </>
+  )
+}
+
+
+/**
+ * EmbeddedChat
+ *
+ * Responsive chat entry point:
+ * - Mobile (<md): CTA button that opens a bottom sheet
+ * - Desktop (md+): Inline embedded chat
+ */
+export function EmbeddedChat() {
+  const [sheetOpen, setSheetOpen] = useState(false)
+
+  const openSheet = useCallback(() => setSheetOpen(true), [])
+  const closeSheet = useCallback(() => setSheetOpen(false), [])
+
+  return (
+    <>
+      {/* Mobile: CTA button */}
+      <div className="md:hidden">
+        <button
+          onClick={openSheet}
+          className="w-full rounded-2xl px-6 py-5 font-body text-base font-medium
+                     flex items-center justify-center gap-3 transition-opacity hover:opacity-80"
+          style={{
+            backgroundColor: 'var(--warm-text)',
+            color: 'var(--warm-bg)',
+          }}
+        >
+          <MessageCircle className="w-5 h-5" />
+          Start a conversation
+        </button>
+
+        <ChatSheet isOpen={sheetOpen} onClose={closeSheet} />
+      </div>
+
+      {/* Desktop: Inline embed */}
+      <div className="hidden md:block rounded-2xl overflow-hidden text-left"
+           style={{
+             backgroundColor: 'var(--warm-bg)',
+             border: '1px solid var(--warm-border)',
+           }}>
+        <ChatBody variant="inline" />
+      </div>
+    </>
   )
 }
