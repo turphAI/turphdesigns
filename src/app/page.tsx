@@ -39,30 +39,60 @@ export default function HomeV2() {
             FULL BLOCK: Meet Tom
             Opaque, edge-to-edge — the human behind the brand.
             ════════════════════════════════════════════ */}
-        <section className="py-20 md:py-28 px-6 lg:px-8"
-                 style={{
-                   backgroundColor: 'var(--warm-bg)',
-                   borderBottom: '1px solid var(--warm-border)',
-                 }}>
-          <div className="max-w-[700px] mx-auto text-center">
+        <section className="v2-section px-6 lg:px-8"
+                 style={{ backgroundColor: 'var(--warm-bg)' }}>
+          <div className="max-w-[1100px] mx-auto">
             <p className="font-body text-sm tracking-widest uppercase mb-4"
                style={{ color: 'var(--warm-accent)' }}>
               The Person Behind TurphDesigns
             </p>
-            <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-8">
+            <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-12 md:mb-16">
               I&apos;m Tom Murphy.
             </h2>
-            <p className="font-body text-base md:text-lg leading-relaxed mb-6"
-               style={{ color: 'var(--warm-text-secondary)' }}>
-              For over 25 years I&apos;ve been designing products that put people first —
-              from founding the UX practice at Amazon ProductAds to directing AI-powered
-              experiences at Fidelity Investments.
-            </p>
-            <p className="font-body text-base md:text-lg leading-relaxed"
-               style={{ color: 'var(--warm-text-secondary)' }}>
-              TurphDesigns is where I share that thinking — through consulting, conversation,
-              and the belief that the best interfaces don&apos;t feel like interfaces at all.
-            </p>
+
+            <div className="rounded-2xl overflow-hidden"
+                 style={{ border: '1px solid var(--warm-border)' }}>
+              <div className="grid grid-cols-1 md:grid-cols-[320px_1fr]">
+                {/* Left — identity panel */}
+                <div className="p-10 md:p-12 flex flex-col justify-between"
+                     style={{ backgroundColor: 'var(--warm-dark)' }}>
+                  <div>
+                    <span className="font-serif-display text-2xl md:text-3xl font-medium block mb-2"
+                          style={{ color: '#FAF8F5' }}>
+                      Tom Murphy
+                    </span>
+                    <span className="font-body text-sm tracking-widest uppercase"
+                          style={{ color: 'var(--warm-text-muted)' }}>
+                      TurphDesigns
+                    </span>
+                  </div>
+                  <div className="mt-10 pt-8"
+                       style={{ borderTop: '1px solid var(--warm-dark-surface)' }}>
+                    <p className="font-body text-sm leading-relaxed"
+                       style={{ color: 'var(--warm-text-muted)' }}>
+                      Product Designer<br />
+                      25+ Years of Experience
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right — bio content */}
+                <div className="p-10 md:p-12"
+                     style={{ backgroundColor: 'var(--warm-surface)' }}>
+                  <p className="font-body text-base md:text-lg leading-relaxed mb-6"
+                     style={{ color: 'var(--warm-text-secondary)' }}>
+                    For over 25 years I&apos;ve been designing products that put people first —
+                    from founding the UX practice at Amazon ProductAds to directing AI-powered
+                    experiences at Fidelity Investments.
+                  </p>
+                  <p className="font-body text-base md:text-lg leading-relaxed"
+                     style={{ color: 'var(--warm-text-secondary)' }}>
+                    TurphDesigns is where I share that thinking — through consulting, conversation,
+                    and the belief that the best interfaces don&apos;t feel like interfaces at all.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
