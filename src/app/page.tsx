@@ -14,7 +14,7 @@ export default function HomeV2() {
             CARD SECTION: Philosophy / Intro Statement
             Illustration bleeds through around this card.
             ════════════════════════════════════════════ */}
-        <section className="px-6 lg:px-8 pt-24 md:pt-32 pb-8">
+        <section className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
           <div className="max-w-[900px] mx-auto rounded-3xl py-16 md:py-20 px-8 md:px-16"
                style={{
                  backgroundColor: 'rgba(250, 248, 245, 0.92)',
@@ -115,7 +115,7 @@ export default function HomeV2() {
             CARD SECTION: Vision Quote
             Illustration bleeds through. Dark card floats.
             ════════════════════════════════════════════ */}
-        <section className="px-6 lg:px-8 pt-24 md:pt-32 pb-8">
+        <section className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
           <div className="max-w-[1000px] mx-auto rounded-3xl py-16 md:py-20 px-8 md:px-16"
                style={{
                  backgroundColor: 'rgba(90, 45, 30, 0.92)',
@@ -247,7 +247,7 @@ export default function HomeV2() {
             CARD SECTION: AI Chat
             Illustration bleeds through. Card floats.
             ════════════════════════════════════════════ */}
-        <section id="approach" className="px-6 lg:px-8 pt-24 md:pt-32 pb-8">
+        <section id="approach" className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
           <div className="max-w-[900px] mx-auto rounded-3xl py-16 md:py-20 px-8 md:px-16"
                style={{
                  backgroundColor: 'rgba(255, 255, 255, 0.92)',
