@@ -95,10 +95,10 @@ export function HeroSection() {
           className="font-serif-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.1] mb-6"
           style={{ color: 'var(--warm-text)' }}
         >
-          What if your product
+          Every conversation
           <br />
           <span style={{ color: 'var(--warm-text)' }}>
-            could understand you?
+            becomes the interface.
           </span>
         </h1>
 
