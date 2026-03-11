@@ -95,10 +95,10 @@ export function HeroSection() {
           className="font-serif-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[1.1] mb-6"
           style={{ color: 'var(--warm-text)' }}
         >
-          Designing the future
+          What if your product
           <br />
           <span style={{ color: 'var(--warm-text)' }}>
-            of human-AI conversation.
+            could understand you?
           </span>
         </h1>
 
@@ -119,7 +119,7 @@ export function HeroSection() {
             backdropFilter: 'blur(8px)',
           }}
         >
-          Explore my work
+          See how
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-0.5">
             <path d="M8 3L8 13M8 13L13 8M8 13L3 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

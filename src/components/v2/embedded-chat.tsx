@@ -110,8 +110,8 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
         {messages.length === 0 ? (
           <p className="font-body text-base leading-relaxed py-4"
              style={{ color: 'var(--warm-text-secondary)' }}>
-            Try asking about conversational AI strategy, my experience scaling
-            products at Amazon, or how I approach UX in regulated financial environments.
+            Try asking about my time at Amazon, how I think about AI in financial services,
+            or what it&apos;s like designing for high-stakes decisions.
           </p>
         ) : (
           <div className="space-y-4 py-4">
