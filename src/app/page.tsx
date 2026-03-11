@@ -236,14 +236,14 @@ export default function HomeV2() {
                     them there.
                   </p>
                 </div>
-                <div className="rounded-2xl p-10 md:p-12"
-                     style={{
-                       backgroundColor: 'var(--warm-accent-light)',
-                       minHeight: '240px',
-                     }}>
-                  <p className="font-body text-sm italic" style={{ color: 'var(--warm-accent-dark)' }}>
-                    Visual: Illustration of conversation flows replacing menu hierarchies
-                  </p>
+                <div className="rounded-2xl overflow-hidden"
+                     style={{ minHeight: '240px' }}>
+                  <img
+                    src="/approach-1.png"
+                    alt="Illustration of conversation flows replacing menu hierarchies"
+                    className="w-full h-full object-cover rounded-2xl"
+                    style={{ minHeight: '240px' }}
+                  />
                 </div>
               </div>
 
@@ -265,15 +265,14 @@ export default function HomeV2() {
                     hiding what matters behind a clever interaction.
                   </p>
                 </div>
-                <div className="md:order-1 rounded-2xl p-10 md:p-12"
-                     style={{
-                       backgroundColor: 'var(--warm-surface)',
-                       border: '1px solid var(--warm-border)',
-                       minHeight: '240px',
-                     }}>
-                  <p className="font-body text-sm italic" style={{ color: 'var(--warm-text-muted)' }}>
-                    Visual: Data visualization transforming from dense charts to clear narrative
-                  </p>
+                <div className="md:order-1 rounded-2xl overflow-hidden"
+                     style={{ minHeight: '240px' }}>
+                  <img
+                    src="/approach-2.png"
+                    alt="Data visualization transforming from dense charts to clear narrative"
+                    className="w-full h-full object-cover rounded-2xl"
+                    style={{ minHeight: '240px' }}
+                  />
                 </div>
               </div>
 
@@ -295,14 +294,14 @@ export default function HomeV2() {
                     were shaped as much by their users as by their designers.
                   </p>
                 </div>
-                <div className="rounded-2xl p-10 md:p-12"
-                     style={{
-                       backgroundColor: 'var(--warm-dark)',
-                       minHeight: '240px',
-                     }}>
-                  <p className="font-body text-sm italic" style={{ color: '#A39E98' }}>
-                    Visual: Security and openness coexisting in regulated design
-                  </p>
+                <div className="rounded-2xl overflow-hidden"
+                     style={{ minHeight: '240px' }}>
+                  <img
+                    src="/approach-3.png"
+                    alt="Security and openness coexisting in regulated design"
+                    className="w-full h-full object-cover rounded-2xl"
+                    style={{ minHeight: '240px' }}
+                  />
                 </div>
               </div>
             </div>
