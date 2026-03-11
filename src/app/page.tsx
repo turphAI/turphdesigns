@@ -366,7 +366,9 @@ export default function HomeV2() {
                 <ArrowUpRight className="w-4 h-4" />
               </a>
               <span className="hidden sm:block w-[1px] h-5" style={{ backgroundColor: 'var(--warm-border)' }} />
-              <a href="#"
+              <a href="https://www.linkedin.com/in/tom-murphy-453479/"
+                 target="_blank"
+                 rel="noopener noreferrer"
                  className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
                  style={{ color: 'var(--warm-accent)' }}>
                 LinkedIn
