@@ -18,25 +18,29 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TurphDesigns - AI-First UX Leadership for Financial Innovation",
-  description: "Specialized UX Director with proven experience scaling financial products to $250M+ revenue. Leading the transformation from traditional interfaces to conversational AI experiences that make complex financial data accessible.",
+  title: "TurphDesigns — Tom Murphy | Product Designer, Conversational Interfaces",
+  description: "Tom Murphy is a product designer with 25+ years of experience designing conversational AI interfaces for Amazon and Fidelity Investments. Every conversation becomes the interface.",
   keywords: [
-    "conversational AI interfaces", 
-    "financial services UX", 
-    "AI-powered financial interfaces", 
-    "financial data visualization", 
-    "UX director", 
-    "product scaling", 
-    "Amazon ProductAds", 
-    "Fidelity UX",
-    "structured data interfaces",
-    "AI-first design"
+    "Tom Murphy",
+    "TurphDesigns",
+    "product designer",
+    "conversational interfaces",
+    "conversational AI",
+    "financial services UX",
+    "Amazon ProductAds designer",
+    "Fidelity Investments UX",
+    "AI interface design",
+    "human-centered design",
   ],
-  authors: [{ name: "TurphDesigns" }],
-  creator: "TurphDesigns",
+  authors: [{ name: "Tom Murphy", url: "https://turphdesigns.com" }],
+  creator: "Tom Murphy",
+  metadataBase: new URL("https://turphdesigns.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "TurphDesigns - AI-First UX Leadership for Financial Innovation",
-    description: "Pioneering conversational AI interfaces for financial services. Proven track record scaling products from 0 to $250M revenue at Amazon and leading AI-powered experiences at Fidelity.",
+    title: "TurphDesigns — Tom Murphy | Product Designer",
+    description: "25+ years designing products at Amazon and Fidelity Investments. Every conversation becomes the interface.",
     url: "https://turphdesigns.com",
     siteName: "TurphDesigns",
     locale: "en_US",
@@ -44,9 +48,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TurphDesigns - AI-First UX Leadership for Financial Innovation",
-    description: "Specialized UX Director pioneering conversational AI interfaces for financial services. Making complex financial data accessible through natural language interactions.",
-    creator: "@turphdesigns",
+    title: "TurphDesigns — Tom Murphy | Product Designer",
+    description: "25+ years designing conversational AI interfaces for Amazon and Fidelity Investments. Making the complex feel simple, and the simple feel human.",
   },
   robots: {
     index: true,
@@ -69,6 +72,61 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${playfair.variable} ${dmSans.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": "https://turphdesigns.com/#website",
+                  "url": "https://turphdesigns.com",
+                  "name": "TurphDesigns",
+                  "description": "Product design consultancy founded by Tom Murphy.",
+                  "publisher": { "@id": "https://turphdesigns.com/#person" },
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://turphdesigns.com/#person",
+                  "name": "Tom Murphy",
+                  "alternateName": "Turph",
+                  "url": "https://turphdesigns.com",
+                  "jobTitle": "Product Designer",
+                  "description": "Product designer with 25+ years of experience designing conversational AI interfaces. Formerly at Amazon (ProductAds, $0 to $250M revenue) and Fidelity Investments (Personal Investing).",
+                  "knowsAbout": [
+                    "Conversational AI interfaces",
+                    "Product design",
+                    "Financial services UX",
+                    "Human-centered design",
+                    "AI interface design",
+                    "Design leadership",
+                  ],
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "TurphDesigns",
+                    "url": "https://turphdesigns.com",
+                  },
+                  "alumniOf": [
+                    {
+                      "@type": "Organization",
+                      "name": "Amazon",
+                      "url": "https://amazon.com",
+                    },
+                    {
+                      "@type": "Organization",
+                      "name": "Fidelity Investments",
+                      "url": "https://fidelity.com",
+                    },
+                  ],
+                  "sameAs": [
+                    "https://www.linkedin.com/in/tom-murphy-453479/",
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2NSF2ZPEZP"

@@ -1,0 +1,30 @@
+# TurphDesigns
+
+> Tom Murphy is a product designer with 25+ years of experience. He designs conversational AI interfaces that replace traditional menus, dashboards, and forms with natural language interactions.
+
+## About Tom Murphy
+
+Tom Murphy (also known as Turph) is the founder of TurphDesigns, a product design consultancy. He specializes in conversational AI interfaces for complex, high-stakes domains — particularly financial services.
+
+His design philosophy: every conversation becomes the interface. Rather than teaching people how to use software, he designs software that understands people.
+
+## Experience
+
+### Amazon — ProductAds
+Tom was the first and sole designer on the Amazon ProductAds team when it had fewer than 20 people. He designed every merchant dashboard, customer touchpoint, and ad platform interface. The team grew to 200+. Revenue went from $0 to $250M annually. That foundation became a billion-dollar business.
+
+### Fidelity Investments — Personal Investing
+Tom leads design for products that millions of people use to manage their financial lives. His work spans account opening flows, portfolio management, and AI-powered assistants that help people understand market movements. He designs for clarity in high-stakes moments where trust is essential.
+
+## Design Principles
+
+1. Start with the outcome, not the screen — organize around what users are trying to accomplish, not what the system can do.
+2. Earn trust at every step — in high-stakes domains like finance, show the right information at the right time and never hide what matters.
+3. Ship it, then sharpen it — get thoughtful work into people's hands quickly and iterate with real signal instead of assumptions.
+
+## Contact
+
+- Website: https://turphdesigns.com
+- Email: turphs.ai@gmail.com
+- LinkedIn: https://www.linkedin.com/in/tom-murphy-453479/
+- Booking: https://calendly.com/turph
