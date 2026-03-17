@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { Send, Bot, User, MessageCircle, X } from 'lucide-react'
 import { useChatStore, getOrCreateSessionId } from '@/lib/chat-store'
+import { ga } from '@/lib/ga'
 
 /**
  * ChatBody
@@ -54,6 +55,7 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
     setInput('')
 
     addMessage({ role: 'user', content: messageToSend })
+    ga.chatMessage(messageToSend)
     setLoading(true)
 
     try {
@@ -326,7 +328,7 @@ function ChatSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
 export function EmbeddedChat() {
   const [sheetOpen, setSheetOpen] = useState(false)
 
-  const openSheet = useCallback(() => setSheetOpen(true), [])
+  const openSheet = useCallback(() => { ga.chatOpen(); setSheetOpen(true) }, [])
   const closeSheet = useCallback(() => setSheetOpen(false), [])
 
   return (

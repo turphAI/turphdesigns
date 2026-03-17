@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { ga } from '@/lib/ga'
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -32,6 +33,7 @@ export function Nav() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
+                onClick={() => ga.navClick(item)}
                 className="font-body text-sm tracking-wide transition-opacity duration-200 hover:opacity-60"
                 style={{ color: 'var(--warm-text-secondary)' }}
               >
@@ -43,6 +45,7 @@ export function Nav() {
           {/* CTA — ghost/outlined */}
           <a
             href="#contact"
+            onClick={() => ga.navClick('Get in Touch')}
             className="hidden md:inline-flex font-body items-center px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:opacity-70"
             style={{
               color: 'var(--warm-text)',
@@ -71,7 +74,7 @@ export function Nav() {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={() => { ga.navClick(item); setMobileOpen(false) }}
                   className="font-body text-lg"
                   style={{ color: 'var(--warm-text)' }}
                 >
@@ -80,7 +83,7 @@ export function Nav() {
               ))}
               <a
                 href="#contact"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => { ga.navClick('Get in Touch'); setMobileOpen(false) }}
                 className="font-body text-lg"
                 style={{ color: 'var(--warm-accent)' }}
               >

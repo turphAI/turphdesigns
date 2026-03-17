@@ -19,6 +19,14 @@ export async function POST(req: NextRequest) {
       )
     }
 
+    // Structured log for Vercel — shows up in Function Logs dashboard
+    console.log(JSON.stringify({
+      event: 'chat_message',
+      sessionId,
+      userMessage: message,
+      timestamp: new Date().toISOString(),
+    }))
+
     // Check if we're in local development without KV
     const hasKVCredentials = process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN
     let recentMessages: ConversationMessage[] = []
@@ -167,9 +175,18 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
       messages: messages
     })
 
-    const assistantMessage = response.content[0]?.type === 'text' 
-      ? response.content[0].text 
+    const assistantMessage = response.content[0]?.type === 'text'
+      ? response.content[0].text
       : 'I apologize, but I encountered an error processing your message.'
+
+    // Structured log of assistant response
+    console.log(JSON.stringify({
+      event: 'chat_response',
+      sessionId,
+      assistantMessage: assistantMessage.slice(0, 500),
+      tokensUsed: response.usage?.output_tokens,
+      timestamp: new Date().toISOString(),
+    }))
 
     // Save assistant response to context (if memory available)
     if (hasKVCredentials) {

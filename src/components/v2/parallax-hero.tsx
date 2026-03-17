@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, ReactNode } from 'react'
+import { ga } from '@/lib/ga'
 
 /**
  * PageWithParallaxBg
@@ -111,6 +112,7 @@ export function HeroSection() {
 
         <a
           href="#work"
+          onClick={() => ga.heroCTA()}
           className="font-body inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 hover:opacity-80"
           style={{
             color: 'var(--warm-text)',

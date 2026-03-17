@@ -1,7 +1,7 @@
 import { Nav } from '@/components/v2/nav'
 import { PageWithParallaxBg, HeroSection } from '@/components/v2/parallax-hero'
 import { EmbeddedChat } from '@/components/v2/embedded-chat'
-import { ArrowUpRight } from 'lucide-react'
+import { ContactLinks, FooterNav } from '@/components/v2/tracked-links'
 
 export default function HomeV2() {
   return (
@@ -353,32 +353,7 @@ export default function HomeV2() {
               If anything here resonated — or if you&apos;re working on something where
               this kind of thinking could help — I&apos;d genuinely enjoy the conversation.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a href="https://calendly.com/turph"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
-                 style={{ color: 'var(--warm-accent)' }}>
-                Book a Meeting
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <span className="hidden sm:block w-[1px] h-5" style={{ backgroundColor: 'var(--warm-border)' }} />
-              <a href="mailto:turphs.ai@gmail.com"
-                 className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
-                 style={{ color: 'var(--warm-accent)' }}>
-                turphs.ai@gmail.com
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <span className="hidden sm:block w-[1px] h-5" style={{ backgroundColor: 'var(--warm-border)' }} />
-              <a href="https://www.linkedin.com/in/tom-murphy-453479/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
-                 style={{ color: 'var(--warm-accent)' }}>
-                LinkedIn
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-            </div>
+            <ContactLinks />
           </div>
         </section>
 
@@ -401,12 +376,7 @@ export default function HomeV2() {
                   Making the complex feel simple, and the simple feel human.
                 </p>
               </div>
-              <div className="flex gap-8 font-body text-sm">
-                <a href="#work" className="transition-opacity hover:opacity-60">Work</a>
-                <a href="#about" className="transition-opacity hover:opacity-60">About</a>
-                <a href="#approach" className="transition-opacity hover:opacity-60">Approach</a>
-                <a href="#contact" className="transition-opacity hover:opacity-60">Contact</a>
-              </div>
+              <FooterNav />
             </div>
             <div className="mt-12 pt-8 font-body text-xs"
                  style={{ borderTop: '1px solid var(--warm-dark-surface)' }}>
