@@ -70,8 +70,7 @@ export default function HomeV2() {
                        style={{ borderTop: '1px solid rgba(255, 253, 247, 0.2)' }}>
                     <p className="font-body text-sm leading-relaxed"
                        style={{ color: '#FFFDF7' }}>
-                      Product Designer<br />
-                      25+ Years of Experience
+                      Product Designer
                     </p>
                   </div>
                 </div>

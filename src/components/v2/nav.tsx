@@ -11,9 +11,44 @@ export function Nav() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80)
+      // Reset hash when scrolled back up to the hero
+      if (window.scrollY < 200) {
+        history.replaceState(null, '', window.location.pathname)
+      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Scroll-spy: update URL hash as sections enter the viewport
+  useEffect(() => {
+    const sectionIds = ['work', 'about', 'approach', 'contact']
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Among entries that just became visible, pick the one nearest the top
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+
+        if (visible.length > 0) {
+          const id = visible[0].target.getAttribute('id')
+          if (id) history.replaceState(null, '', `#${id}`)
+        }
+      },
+      {
+        // Fire when the top of a section crosses the upper quarter of the viewport
+        rootMargin: '-10% 0px -80% 0px',
+        threshold: 0,
+      }
+    )
+
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   return (
