@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { ga } from '@/lib/ga'
 
 export function Nav() {
@@ -22,10 +23,10 @@ export function Nav() {
       <div className="max-w-[1100px] mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo — serif, editorial */}
-          <a href="/" className="font-serif-display text-2xl font-medium tracking-tight"
+          <Link href="/" className="font-serif-display text-2xl font-medium tracking-tight"
              style={{ color: 'var(--warm-text)' }}>
             TurphDesigns.
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-10">
