@@ -104,6 +104,9 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
 
       {/* Messages area */}
       <div ref={scrollRef}
+           role="log"
+           aria-live="polite"
+           aria-label="Conversation with Tom's AI assistant"
            className="px-6 overflow-y-auto flex-1"
            style={{
              maxHeight: isSheet ? 'none' : '360px',
@@ -187,13 +190,18 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
       {/* Input area */}
       <div className="px-6 pb-5 pt-2">
         <div className="flex gap-3">
+          <label htmlFor="chat-input" className="sr-only">
+            Ask Tom&apos;s AI assistant a question
+          </label>
           <input
+            id="chat-input"
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask me something..."
             disabled={isLoading}
+            aria-disabled={isLoading}
             className="flex-1 rounded-xl px-5 py-3.5 font-body text-sm outline-none transition-colors"
             style={{
               backgroundColor: 'var(--warm-surface)',
@@ -204,13 +212,14 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
           <button
             onClick={sendMessage}
             disabled={isLoading || !input.trim()}
+            aria-label="Send message"
             className="rounded-xl px-4 py-3.5 font-body text-sm font-medium transition-opacity hover:opacity-70 disabled:opacity-40"
             style={{
               backgroundColor: 'var(--warm-text)',
               color: 'var(--warm-bg)',
             }}
           >
-            <Send className="w-4 h-4" />
+            <Send className="w-4 h-4" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -301,10 +310,11 @@ function ChatSheet({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
           </span>
           <button
             onClick={onClose}
+            aria-label="Close chat"
             className="w-8 h-8 rounded-full flex items-center justify-center transition-opacity hover:opacity-60"
             style={{ backgroundColor: 'var(--warm-border)' }}
           >
-            <X className="w-4 h-4" style={{ color: 'var(--warm-text-secondary)' }} />
+            <X className="w-4 h-4" aria-hidden="true" style={{ color: 'var(--warm-text-secondary)' }} />
           </button>
         </div>
 
@@ -344,7 +354,7 @@ export function EmbeddedChat() {
             color: 'var(--warm-bg)',
           }}
         >
-          <MessageCircle className="w-5 h-5" />
+          <MessageCircle className="w-5 h-5" aria-hidden="true" />
           Start a conversation
         </button>
 

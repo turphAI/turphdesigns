@@ -121,8 +121,8 @@ export function HeroSection() {
             backdropFilter: 'blur(8px)',
           }}
         >
-          See how
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-0.5">
+          See my work
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mt-0.5" aria-hidden="true">
             <path d="M8 3L8 13M8 13L13 8M8 13L3 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </a>

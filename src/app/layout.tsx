@@ -127,6 +127,9 @@ export default function RootLayout({
             }),
           }}
         />
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {children}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2NSF2ZPEZP"

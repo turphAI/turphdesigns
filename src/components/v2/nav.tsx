@@ -22,13 +22,13 @@ export function Nav() {
       <div className="max-w-[1100px] mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo — serif, editorial */}
-          <a href="#" className="font-serif-display text-2xl font-medium tracking-tight"
+          <a href="/" className="font-serif-display text-2xl font-medium tracking-tight"
              style={{ color: 'var(--warm-text)' }}>
             TurphDesigns.
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-10">
+          <nav aria-label="Main navigation" className="hidden md:flex items-center gap-10">
             {['Work', 'About', 'Approach'].map((item) => (
               <a
                 key={item}
@@ -58,6 +58,9 @@ export function Nav() {
           {/* Mobile menu trigger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             className="md:hidden font-body text-sm tracking-wide"
             style={{ color: 'var(--warm-text-secondary)' }}
           >
@@ -69,7 +72,7 @@ export function Nav() {
         {mobileOpen && (
           <div className="md:hidden pb-8 pt-2 border-t"
                style={{ borderColor: 'var(--warm-border)' }}>
-            <nav className="flex flex-col gap-6 pt-6">
+            <nav id="mobile-nav" aria-label="Mobile navigation" className="flex flex-col gap-6 pt-6">
               {['Work', 'About', 'Approach'].map((item) => (
                 <a
                   key={item}

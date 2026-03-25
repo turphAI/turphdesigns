@@ -8,6 +8,7 @@ export default function HomeV2() {
     <PageWithParallaxBg>
       <div className="font-body" style={{ color: 'var(--warm-text)' }}>
         <Nav />
+        <main id="main-content">
         <HeroSection />
 
         {/* ════════════════════════════════════════════
@@ -288,23 +289,41 @@ export default function HomeV2() {
               Whether you&apos;re exploring conversational AI for your product, navigating UX in financial
               services, or scaling a design team — I&apos;d love to hear what you&apos;re working on.
             </p>
+            {/* Primary CTA */}
+            <a href="https://calendly.com/turph"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="font-body inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium transition-opacity hover:opacity-80 mb-8"
+               style={{
+                 backgroundColor: 'var(--warm-text)',
+                 color: 'var(--warm-bg)',
+               }}>
+              Book a Meeting
+              <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+            </a>
+
+            {/* Secondary contact links */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a href="mailto:turphs.ai@gmail.com"
                  className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
                  style={{ color: 'var(--warm-accent)' }}>
                 turphs.ai@gmail.com
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
               <span className="hidden sm:block w-[1px] h-5" style={{ backgroundColor: 'var(--warm-border)' }} />
-              <a href="#"
+              <a href="https://www.linkedin.com/in/tom-murphy-453479/"
+                 target="_blank"
+                 rel="noopener noreferrer"
                  className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
                  style={{ color: 'var(--warm-accent)' }}>
                 LinkedIn
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
             </div>
           </div>
         </section>
+
+        </main>
 
         {/* ════════════════════════════════════════════
             Footer
@@ -329,7 +348,7 @@ export default function HomeV2() {
                 <a href="#work" className="transition-opacity hover:opacity-60">Work</a>
                 <a href="#about" className="transition-opacity hover:opacity-60">About</a>
                 <a href="#approach" className="transition-opacity hover:opacity-60">Approach</a>
-                <a href="#contact" className="transition-opacity hover:opacity-60">Contact</a>
+                <a href="#contact" className="transition-opacity hover:opacity-60">Get in Touch</a>
               </div>
             </div>
             <div className="mt-12 pt-8 font-body text-xs"
