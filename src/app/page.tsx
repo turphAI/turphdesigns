@@ -8,6 +8,7 @@ export default function HomeV2() {
     <PageWithParallaxBg>
       <div className="font-body" style={{ color: 'var(--warm-text)' }}>
         <Nav />
+        <main id="main-content">
         <HeroSection />
 
         {/* ════════════════════════════════════════════
@@ -355,6 +356,8 @@ export default function HomeV2() {
             <ContactLinks />
           </div>
         </section>
+
+        </main>
 
         {/* ════════════════════════════════════════════
             Footer

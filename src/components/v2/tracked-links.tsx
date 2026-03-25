@@ -46,12 +46,17 @@ export function ContactLinks() {
 export function FooterNav() {
   return (
     <div className="flex gap-8 font-body text-sm">
-      {['Work', 'About', 'Approach', 'Contact'].map((item) => (
-        <a key={item}
-           href={`#${item.toLowerCase()}`}
-           onClick={() => ga.footerNavClick(item)}
+      {[
+        { label: 'Work', id: 'work' },
+        { label: 'About', id: 'about' },
+        { label: 'Approach', id: 'approach' },
+        { label: 'Get in Touch', id: 'contact' },
+      ].map(({ label, id }) => (
+        <a key={id}
+           href={`#${id}`}
+           onClick={() => ga.footerNavClick(label)}
            className="transition-opacity hover:opacity-60">
-          {item}
+          {label}
         </a>
       ))}
     </div>
