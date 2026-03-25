@@ -176,6 +176,55 @@ export default function HomeV2() {
         </section>
 
         {/* ════════════════════════════════════════════
+            CARD SECTION: AI Chat
+            Illustration bleeds through. Card floats.
+            ════════════════════════════════════════════ */}
+        <section id="approach" className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
+          <div className="max-w-[900px] mx-auto rounded-3xl py-16 md:py-20 px-8 md:px-16"
+               style={{
+                 backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                 backdropFilter: 'blur(16px)',
+               }}>
+            <div className="max-w-[700px] mx-auto text-center">
+              <p className="font-body text-sm tracking-widest uppercase mb-4"
+                 style={{ color: 'var(--warm-accent)' }}>
+                Go Deeper
+              </p>
+              <h2 className="font-serif-display text-3xl md:text-4xl font-medium tracking-tight leading-tight mb-6">
+                Don&apos;t take my word for it.<br />
+                Ask me yourself.
+              </h2>
+              <p className="font-body text-base leading-relaxed mb-12"
+                 style={{ color: 'var(--warm-text-secondary)' }}>
+                This AI assistant knows my work, my thinking, and my experience. Ask it anything —
+                about a project, a point of view, or whether I&apos;m the right fit for yours.
+              </p>
+              {/* Live chat component */}
+              <EmbeddedChat />
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════
+            FULL BLOCK: Contact
+            Opaque, edge-to-edge.
+            ════════════════════════════════════════════ */}
+        <section id="contact" className="v2-section px-6 lg:px-8"
+                 style={{ backgroundColor: 'var(--warm-bg)' }}>
+          <div className="max-w-[800px] mx-auto text-center">
+            <h2 className="font-serif-display text-4xl md:text-6xl font-medium tracking-tight mb-8">
+              Let&apos;s talk.
+            </h2>
+            <p className="font-body text-base md:text-lg leading-relaxed mb-12"
+               style={{ color: 'var(--warm-text-secondary)' }}>
+              If anything here resonated — or if you&apos;re working on something where
+              this kind of thinking could help — I&apos;d genuinely enjoy the conversation.
+            </p>
+            <ContactLinks />
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════
             CARD SECTION: Vision Quote
             Illustration bleeds through. Dark card floats.
             ════════════════════════════════════════════ */}
@@ -305,55 +354,6 @@ export default function HomeV2() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════════
-            CARD SECTION: AI Chat
-            Illustration bleeds through. Card floats.
-            ════════════════════════════════════════════ */}
-        <section id="approach" className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
-          <div className="max-w-[900px] mx-auto rounded-3xl py-16 md:py-20 px-8 md:px-16"
-               style={{
-                 backgroundColor: 'rgba(255, 255, 255, 0.92)',
-                 backdropFilter: 'blur(16px)',
-               }}>
-            <div className="max-w-[700px] mx-auto text-center">
-              <p className="font-body text-sm tracking-widest uppercase mb-4"
-                 style={{ color: 'var(--warm-accent)' }}>
-                Go Deeper
-              </p>
-              <h2 className="font-serif-display text-3xl md:text-4xl font-medium tracking-tight leading-tight mb-6">
-                Don&apos;t take my word for it.<br />
-                Ask me yourself.
-              </h2>
-              <p className="font-body text-base leading-relaxed mb-12"
-                 style={{ color: 'var(--warm-text-secondary)' }}>
-                This AI assistant knows my work, my thinking, and my experience. Ask it anything —
-                about a project, a point of view, or whether I&apos;m the right fit for yours.
-              </p>
-              {/* Live chat component */}
-              <EmbeddedChat />
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════════
-            FULL BLOCK: Contact
-            Opaque, edge-to-edge.
-            ════════════════════════════════════════════ */}
-        <section id="contact" className="v2-section px-6 lg:px-8"
-                 style={{ backgroundColor: 'var(--warm-bg)' }}>
-          <div className="max-w-[800px] mx-auto text-center">
-            <h2 className="font-serif-display text-4xl md:text-6xl font-medium tracking-tight mb-8">
-              Let&apos;s talk.
-            </h2>
-            <p className="font-body text-base md:text-lg leading-relaxed mb-12"
-               style={{ color: 'var(--warm-text-secondary)' }}>
-              If anything here resonated — or if you&apos;re working on something where
-              this kind of thinking could help — I&apos;d genuinely enjoy the conversation.
-            </p>
-            <ContactLinks />
           </div>
         </section>
 
