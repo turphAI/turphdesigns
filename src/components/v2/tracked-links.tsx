@@ -13,7 +13,7 @@ export function ContactLinks() {
          target="_blank"
          rel="noopener noreferrer"
          onClick={() => ga.contactClick('calendly')}
-         className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
+         className="font-serif-display inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
          style={{ color: 'var(--warm-accent)' }}>
         Book a Meeting
         <ArrowUpRight className="w-4 h-4" />
@@ -21,7 +21,7 @@ export function ContactLinks() {
       <span className="hidden sm:block w-[1px] h-5" style={{ backgroundColor: 'var(--warm-border)' }} />
       <a href="mailto:turphs.ai@gmail.com"
          onClick={() => ga.contactClick('email')}
-         className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
+         className="font-serif-display inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
          style={{ color: 'var(--warm-accent)' }}>
         turphs.ai@gmail.com
         <ArrowUpRight className="w-4 h-4" />
@@ -31,7 +31,7 @@ export function ContactLinks() {
          target="_blank"
          rel="noopener noreferrer"
          onClick={() => ga.contactClick('linkedin')}
-         className="font-body inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
+         className="font-serif-display inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
          style={{ color: 'var(--warm-accent)' }}>
         LinkedIn
         <ArrowUpRight className="w-4 h-4" />
@@ -45,7 +45,7 @@ export function ContactLinks() {
  */
 export function FooterNav() {
   return (
-    <div className="flex gap-8 font-body text-sm">
+    <div className="flex gap-8 font-serif-display text-sm">
       {[
         { label: 'Work', id: 'work' },
         { label: 'About', id: 'about' },

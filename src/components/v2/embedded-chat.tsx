@@ -96,7 +96,7 @@ function ChatBody({ variant = 'inline' }: { variant?: 'inline' | 'sheet' }) {
       <div className="flex items-center gap-3 px-6 pt-5 pb-3">
         <div className="w-2 h-2 rounded-full"
              style={{ backgroundColor: '#5B8A7A' }} />
-        <span className="font-body text-sm"
+        <span className="font-serif-display text-sm"
               style={{ color: 'var(--warm-text-muted)' }}>
           AI Assistant &middot; Ready
         </span>
@@ -347,7 +347,7 @@ export function EmbeddedChat() {
       <div className="md:hidden">
         <button
           onClick={openSheet}
-          className="w-full rounded-2xl px-6 py-5 font-body text-base font-medium
+          className="w-full rounded-2xl px-6 py-5 font-serif-display text-base font-medium
                      flex items-center justify-center gap-3 transition-opacity hover:opacity-80"
           style={{
             backgroundColor: 'var(--warm-text)',

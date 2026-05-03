@@ -104,7 +104,7 @@ export function HeroSection() {
         </h1>
 
         <p
-          className="font-body text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto"
+          className="font-body text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto font-light"
           style={{ color: 'var(--warm-text)' }}
         >
           Product Designer &middot; 25+ Years of Experience
@@ -113,7 +113,7 @@ export function HeroSection() {
         <a
           href="#work"
           onClick={() => ga.heroCTA()}
-          className="font-body inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 hover:opacity-80"
+          className="font-serif-display inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-base font-medium transition-all duration-300 hover:opacity-80"
           style={{
             color: 'var(--warm-text)',
             border: '1.5px solid var(--warm-text)',

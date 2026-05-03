@@ -128,6 +128,30 @@
   --warm-dark-surface: #242220;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --warm-bg: #1A1A1A;
+    --warm-surface: #242220;
+    --warm-text: #FAF8F5;
+    --warm-text-secondary: #B8B0A8;
+    --warm-text-muted: #8C857F;
+    --warm-border: #312E2B;
+    --warm-accent-light: #3A2620;
+    --warm-dark-surface: #312E2B;
+  }
+}
+
+[data-theme="dark"] {
+  --warm-bg: #1A1A1A;
+  --warm-surface: #242220;
+  --warm-text: #FAF8F5;
+  --warm-text-secondary: #B8B0A8;
+  --warm-text-muted: #8C857F;
+  --warm-border: #312E2B;
+  --warm-accent-light: #3A2620;
+  --warm-dark-surface: #312E2B;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -139,11 +163,12 @@
 
 /* V2 Typography utilities */
 .font-serif-display {
-  font-family: var(--font-playfair), Georgia, 'Times New Roman', serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
 }
 
 .font-body {
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: var(--font-newsreader), Georgia, 'Times New Roman', serif;
+  font-optical-sizing: auto;
 }
 
 /* V2 Parallax hero */

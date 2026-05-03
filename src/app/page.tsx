@@ -6,7 +6,7 @@ import { ContactLinks, FooterNav } from '@/components/v2/tracked-links'
 export default function HomeV2() {
   return (
     <PageWithParallaxBg>
-      <div className="font-body" style={{ color: 'var(--warm-text)' }}>
+      <div style={{ color: 'var(--warm-text)' }}>
         <Nav />
         <main id="main-content">
         <HeroSection />
@@ -23,14 +23,13 @@ export default function HomeV2() {
                }}>
             <div className="max-w-[700px] mx-auto text-center">
               <p className="font-serif-display text-2xl md:text-3xl lg:text-4xl font-normal leading-relaxed tracking-tight v2-fade-up"
-                 style={{ color: 'var(--warm-text)' }}>
-                People don&apos;t want to learn your interface.
-                They want their interface to learn them.
+                 style={{ color: 'var(--warm-text)', letterSpacing: '-0.01em' }}>
+                I believe the best interfaces disappear. They become conversations — natural, intuitive, human.
               </p>
               <p className="font-body text-base md:text-lg leading-relaxed mt-8 v2-fade-up-delay-1"
                  style={{ color: 'var(--warm-text-secondary)' }}>
-                I&apos;ve spent 25 years designing products that close the gap between
-                what technology can do and what people actually need.
+                After a decade building products at Amazon and Fidelity, I design AI experiences
+                that feel less like software and more like understanding.
               </p>
             </div>
           </div>
@@ -43,11 +42,12 @@ export default function HomeV2() {
         <section className="v2-section px-6 lg:px-8"
                  style={{ backgroundColor: 'var(--warm-bg)' }}>
           <div className="max-w-[1100px] mx-auto">
-            <p className="font-body text-sm tracking-widest uppercase mb-4"
-               style={{ color: 'var(--warm-accent)' }}>
+            <p className="font-serif-display text-sm tracking-widest uppercase mb-4"
+               style={{ color: 'var(--warm-accent)', letterSpacing: '0.16em' }}>
               The Person Behind TurphDesigns
             </p>
-            <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-12 md:mb-16">
+            <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight mb-12 md:mb-16"
+                style={{ letterSpacing: '-0.02em' }}>
               I&apos;m Tom Murphy.
             </h2>
 
@@ -62,16 +62,16 @@ export default function HomeV2() {
                           style={{ color: '#FFFDF7' }}>
                       Tom Murphy
                     </span>
-                    <span className="font-body text-sm tracking-widest uppercase"
-                          style={{ color: '#FFFDF7' }}>
+                    <span className="font-serif-display text-sm tracking-widest uppercase"
+                          style={{ color: '#FFFDF7', letterSpacing: '0.16em' }}>
                       TurphDesigns
                     </span>
                   </div>
                   <div className="mt-10 pt-8"
                        style={{ borderTop: '1px solid rgba(255, 253, 247, 0.2)' }}>
-                    <p className="font-body text-sm leading-relaxed"
+                    <p className="font-serif-display text-sm leading-relaxed"
                        style={{ color: '#FFFDF7' }}>
-                      Product Designer
+                      Director of UX Design
                     </p>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ export default function HomeV2() {
                     I&apos;ve been the first designer in the room at a startup that became a
                     billion-dollar program, and I&apos;ve led design for products that millions
                     of people rely on to manage their financial lives. The through line is
-                    always the same: make the complex feel simple, and make the simple feel human.
+                    always the same: make the complex feel simple, and the simple feel human.
                   </p>
                   <p className="font-body text-base md:text-lg leading-relaxed"
                      style={{ color: 'var(--warm-text-secondary)' }}>
@@ -105,13 +105,14 @@ export default function HomeV2() {
                  style={{ backgroundColor: 'var(--warm-bg)' }}>
           <div className="max-w-[1100px] mx-auto">
             <div className="mb-16 md:mb-24">
-              <p className="font-body text-sm tracking-widest uppercase mb-4"
-                 style={{ color: 'var(--warm-accent)' }}>
+              <p className="font-serif-display text-sm tracking-widest uppercase mb-4"
+                 style={{ color: 'var(--warm-accent)', letterSpacing: '0.16em' }}>
                 Where I&apos;ve Built
               </p>
-              <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight">
-                Two chapters, one thread:{' '}<br className="hidden md:block" />
-                designing at the edge of what&apos;s possible.
+              <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight"
+                  style={{ letterSpacing: '-0.02em' }}>
+                Products that scaled from{' '}<br className="hidden md:block" />
+                zero to hundreds of millions.
               </h2>
             </div>
 
@@ -122,25 +123,25 @@ export default function HomeV2() {
                      backgroundColor: 'var(--warm-surface)',
                      border: '1px solid var(--warm-border)',
                    }}>
-                <p className="font-body text-sm tracking-widest uppercase mb-6"
-                   style={{ color: 'var(--warm-text-muted)' }}>
+                <p className="font-serif-display text-xs tracking-widest uppercase mb-6"
+                   style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
                   Amazon
                 </p>
-                <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight">
+                <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
+                    style={{ letterSpacing: '-0.02em' }}>
                   ProductAds
                 </h3>
                 <p className="font-body text-base leading-relaxed mb-8"
                    style={{ color: 'var(--warm-text-secondary)' }}>
-                  I was the only designer on a team of fewer than 20, building something no one
-                  had built before. Every merchant dashboard, every customer touchpoint, every
-                  pixel of the ad platform came through my hands. The team grew to 200+. Revenue
-                  went from zero to $250M. That foundation became a billion-dollar business.
+                  Sole UX designer from day one. I shaped every customer-facing component and
+                  merchant tool as the team grew from fewer than 20 people to over 200 — and
+                  revenue went from nothing to $250M annually. That foundation became a $1B+ program.
                 </p>
-                <div className="flex flex-wrap gap-x-8 gap-y-3 font-body text-sm"
+                <div className="flex flex-wrap gap-x-8 gap-y-3 font-serif-display text-sm"
                      style={{ color: 'var(--warm-text-muted)' }}>
-                  <span>Sole designer → 200+ org</span>
-                  <span>$0 → $250M annual revenue</span>
-                  <span>Now a $1B+ program</span>
+                  <span>$0 → $250M revenue</span>
+                  <span>20 → 200+ team</span>
+                  <span>Foundation for $1B+</span>
                 </div>
               </div>
 
@@ -150,25 +151,25 @@ export default function HomeV2() {
                      backgroundColor: 'var(--warm-surface)',
                      border: '1px solid var(--warm-border)',
                    }}>
-                <p className="font-body text-sm tracking-widest uppercase mb-6"
-                   style={{ color: 'var(--warm-text-muted)' }}>
+                <p className="font-serif-display text-xs tracking-widest uppercase mb-6"
+                   style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
                   Fidelity Investments
                 </p>
-                <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight">
+                <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
+                    style={{ letterSpacing: '-0.02em' }}>
                   Personal Investing
                 </h3>
                 <p className="font-body text-base leading-relaxed mb-8"
                    style={{ color: 'var(--warm-text-secondary)' }}>
-                  People trust Fidelity with their life savings. That trust shapes every design
-                  decision I make — from how someone opens their first account to how an AI
-                  assistant helps them understand a market swing. The stakes are real, the regulations
-                  are strict, and the opportunity to genuinely help people is enormous.
+                  Director of UX Design, working at the intersection of AI and personal finance.
+                  Leading the design of transaction experiences, money movement, account opening,
+                  and the AI-powered Fidelity Assistant that helps millions navigate their financial lives.
                 </p>
-                <div className="flex flex-wrap gap-x-8 gap-y-3 font-body text-sm"
+                <div className="flex flex-wrap gap-x-8 gap-y-3 font-serif-display text-sm"
                      style={{ color: 'var(--warm-text-muted)' }}>
-                  <span>Millions of daily users</span>
-                  <span>AI + financial trust</span>
-                  <span>High-stakes design</span>
+                  <span>AI-powered interfaces</span>
+                  <span>Regulated environment</span>
+                  <span>Complex financial data</span>
                 </div>
               </div>
             </div>
@@ -186,18 +187,19 @@ export default function HomeV2() {
                  backdropFilter: 'blur(16px)',
                }}>
             <div className="max-w-[700px] mx-auto text-center">
-              <p className="font-body text-sm tracking-widest uppercase mb-4"
-                 style={{ color: 'var(--warm-accent)' }}>
-                Go Deeper
+              <p className="font-serif-display text-sm tracking-widest uppercase mb-4"
+                 style={{ color: 'var(--warm-accent)', letterSpacing: '0.16em', fontWeight: 500 }}>
+                Explore My Thinking
               </p>
-              <h2 className="font-serif-display text-3xl md:text-4xl font-medium tracking-tight leading-tight mb-6">
-                Don&apos;t take my word for it.<br />
-                Ask me yourself.
+              <h2 className="font-serif-display text-3xl md:text-4xl font-medium tracking-tight leading-tight mb-6"
+                  style={{ letterSpacing: '-0.02em' }}>
+                Curious about my approach?<br />
+                Ask me anything.
               </h2>
               <p className="font-body text-base leading-relaxed mb-12"
                  style={{ color: 'var(--warm-text-secondary)' }}>
-                This AI assistant knows my work, my thinking, and my experience. Ask it anything —
-                about a project, a point of view, or whether I&apos;m the right fit for yours.
+                I&apos;ve built an AI assistant trained on my experience, methodology, and perspective.
+                It&apos;s a different way to explore what I do — through conversation, not slides.
               </p>
               {/* Live chat component */}
               <EmbeddedChat />
@@ -212,13 +214,14 @@ export default function HomeV2() {
         <section id="contact" className="v2-section px-6 lg:px-8"
                  style={{ backgroundColor: 'var(--warm-bg)' }}>
           <div className="max-w-[800px] mx-auto text-center">
-            <h2 className="font-serif-display text-4xl md:text-6xl font-medium tracking-tight mb-8">
+            <h2 className="font-serif-display text-4xl md:text-6xl font-medium tracking-tight mb-8"
+                style={{ letterSpacing: '-0.02em' }}>
               Let&apos;s talk.
             </h2>
             <p className="font-body text-base md:text-lg leading-relaxed mb-12"
                style={{ color: 'var(--warm-text-secondary)' }}>
-              If anything here resonated — or if you&apos;re working on something where
-              this kind of thinking could help — I&apos;d genuinely enjoy the conversation.
+              Whether you&apos;re exploring conversational AI for your product, navigating UX in financial
+              services, or scaling a design team — I&apos;d love to hear what you&apos;re working on.
             </p>
             <ContactLinks />
           </div>
@@ -236,13 +239,14 @@ export default function HomeV2() {
                }}>
             <div className="max-w-[800px] mx-auto text-center">
               <blockquote className="font-serif-display text-2xl md:text-4xl lg:text-5xl font-normal leading-snug tracking-tight"
-                          style={{ color: '#FAF8F5' }}>
-                &ldquo;We spent decades teaching people how to use computers.
-                The next era is teaching computers how to understand people.&rdquo;
+                          style={{ color: '#FAF8F5', letterSpacing: '-0.01em' }}>
+                &ldquo;The shift to conversational AI is as fundamental as the move from
+                command-line to graphical interfaces. The interface becomes a
+                conversation — natural, adaptive, human.&rdquo;
               </blockquote>
-              <div className="mt-10 font-body text-sm tracking-widest uppercase"
-                   style={{ color: '#C4BFB8' }}>
-                Tom Murphy
+              <div className="mt-10 font-serif-display text-sm tracking-widest uppercase"
+                   style={{ color: 'rgba(250, 248, 245, 0.65)', letterSpacing: '0.16em' }}>
+                Turph · Director of UX Design
               </div>
             </div>
           </div>
@@ -256,13 +260,14 @@ export default function HomeV2() {
                  style={{ backgroundColor: 'var(--warm-bg)' }}>
           <div className="max-w-[1100px] mx-auto">
             <div className="mb-16 md:mb-24">
-              <p className="font-body text-sm tracking-widest uppercase mb-4"
-                 style={{ color: 'var(--warm-accent)' }}>
-                How I Work
+              <p className="font-serif-display text-sm tracking-widest uppercase mb-4"
+                 style={{ color: 'var(--warm-accent)', letterSpacing: '0.16em', fontWeight: 500 }}>
+                How I Think
               </p>
-              <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight max-w-2xl">
-                Three principles I bring{' '}<br className="hidden md:block" />
-                to every problem.
+              <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight max-w-2xl"
+                  style={{ letterSpacing: '-0.02em' }}>
+                Design that starts with{' '}<br className="hidden md:block" />
+                understanding, not assumptions.
               </h2>
             </div>
 
@@ -270,25 +275,25 @@ export default function HomeV2() {
               {/* Item 1 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
                 <div>
-                  <span className="font-body text-sm tracking-widest uppercase block mb-4"
-                        style={{ color: 'var(--warm-text-muted)' }}>
+                  <span className="font-serif-display text-sm tracking-widest uppercase block mb-4"
+                        style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
                     01
                   </span>
-                  <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight">
-                    Start with the outcome, not the screen
+                  <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
+                      style={{ letterSpacing: '-0.02em' }}>
+                    Conversation-first design
                   </h3>
                   <p className="font-body text-base leading-relaxed"
                      style={{ color: 'var(--warm-text-secondary)' }}>
-                    Before I sketch a single wireframe, I ask: what does this person actually need to
-                    accomplish? Most interfaces are organized around what the system can do. I organize
-                    around what the user is trying to do — and then figure out the shortest path to get
-                    them there.
+                    Traditional interfaces force users to learn your system. I design experiences where
+                    the system learns the user — adapting to their intent through natural conversation
+                    rather than rigid navigation patterns and dense information architectures.
                   </p>
                 </div>
                 <div className="rounded-2xl overflow-hidden"
                      style={{ minHeight: '240px' }}>
                   <img
-                    src="/approach-1.png"
+                    src="/approach-2.png"
                     alt="Illustration of conversation flows replacing menu hierarchies"
                     className="w-full h-full object-cover rounded-2xl"
                     style={{ minHeight: '240px' }}
@@ -299,25 +304,26 @@ export default function HomeV2() {
               {/* Item 2 — reversed */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
                 <div className="md:order-2">
-                  <span className="font-body text-sm tracking-widest uppercase block mb-4"
-                        style={{ color: 'var(--warm-text-muted)' }}>
+                  <span className="font-serif-display text-sm tracking-widest uppercase block mb-4"
+                        style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
                     02
                   </span>
-                  <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight">
-                    Earn trust at every step
+                  <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
+                      style={{ letterSpacing: '-0.02em' }}>
+                    Complexity made human
                   </h3>
                   <p className="font-body text-base leading-relaxed"
                      style={{ color: 'var(--warm-text-secondary)' }}>
-                    When someone is moving money, reviewing their portfolio, or talking to an AI about
-                    their retirement, they need to feel confident — not confused. I design for clarity
-                    in high-stakes moments: showing the right information at the right time, and never
-                    hiding what matters behind a clever interaction.
+                    Financial data is inherently complex. The answer isn&apos;t to simplify it — it&apos;s
+                    to present it intelligently. Progressive disclosure, context-aware visualization,
+                    and narrative data presentation that tells stories with numbers rather than
+                    drowning users in charts.
                   </p>
                 </div>
                 <div className="md:order-1 rounded-2xl overflow-hidden"
                      style={{ minHeight: '240px' }}>
                   <img
-                    src="/approach-2.png"
+                    src="/approach-1.png"
                     alt="Data visualization transforming from dense charts to clear narrative"
                     className="w-full h-full object-cover rounded-2xl"
                     style={{ minHeight: '240px' }}
@@ -328,19 +334,19 @@ export default function HomeV2() {
               {/* Item 3 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
                 <div>
-                  <span className="font-body text-sm tracking-widest uppercase block mb-4"
-                        style={{ color: 'var(--warm-text-muted)' }}>
+                  <span className="font-serif-display text-sm tracking-widest uppercase block mb-4"
+                        style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
                     03
                   </span>
-                  <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight">
-                    Ship it, then sharpen it
+                  <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
+                      style={{ letterSpacing: '-0.02em' }}>
+                    Trust through transparency
                   </h3>
                   <p className="font-body text-base leading-relaxed"
                      style={{ color: 'var(--warm-text-secondary)' }}>
-                    Great design isn&apos;t precious — it&apos;s practical. I believe in getting thoughtful
-                    work into people&apos;s hands quickly, learning from how they actually use it, and
-                    iterating with real signal instead of assumptions. The best products I&apos;ve built
-                    were shaped as much by their users as by their designers.
+                    In regulated environments, innovation needs to earn trust. I balance cutting-edge
+                    AI capabilities with the security, privacy, and compliance requirements of
+                    financial services — building experiences that are both bold and responsible.
                   </p>
                 </div>
                 <div className="rounded-2xl overflow-hidden"
@@ -370,17 +376,20 @@ export default function HomeV2() {
           <div className="max-w-[1100px] mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
               <div>
-                <span className="font-serif-display text-xl font-medium block mb-2"
-                      style={{ color: '#FAF8F5' }}>
-                  TurphDesigns.
-                </span>
-                <p className="font-body text-sm" style={{ color: '#A39E98' }}>
-                  Making the complex feel simple, and the simple feel human.
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo/lockup-horizontal-inverse.svg"
+                  alt="TurphDesigns"
+                  className="block mb-3"
+                  style={{ height: '26px', width: 'auto' }}
+                />
+                <p className="font-body text-sm" style={{ color: 'rgba(250,248,245,0.55)' }}>
+                  Designing the future of human-AI conversation.
                 </p>
               </div>
               <FooterNav />
             </div>
-            <div className="mt-12 pt-8 font-body text-xs"
+            <div className="mt-12 pt-8 font-serif-display text-xs"
                  style={{ borderTop: '1px solid var(--warm-dark-surface)' }}>
               &copy; {new Date().getFullYear()} TurphDesigns. All rights reserved.
             </div>

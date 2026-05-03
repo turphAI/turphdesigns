@@ -57,10 +57,15 @@ export function Nav() {
     >
       <div className="max-w-[1100px] mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo — serif, editorial */}
-          <Link href="/" className="font-serif-display text-2xl font-medium tracking-tight"
+          {/* Logo lockup */}
+          <Link href="/" className="flex items-center"
              style={{ color: 'var(--warm-text)' }}>
-            TurphDesigns.
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo/lockup-horizontal.svg"
+              alt="TurphDesigns"
+              style={{ height: '28px', width: 'auto', display: 'block' }}
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -70,7 +75,7 @@ export function Nav() {
                 key={item}
                 href={`#${item.toLowerCase()}`}
                 onClick={() => ga.navClick(item)}
-                className="font-body text-sm tracking-wide transition-opacity duration-200 hover:opacity-60"
+                className="font-serif-display text-sm tracking-wide transition-opacity duration-200 hover:opacity-60"
                 style={{ color: 'var(--warm-text-secondary)' }}
               >
                 {item}
@@ -82,7 +87,7 @@ export function Nav() {
           <a
             href="#contact"
             onClick={() => ga.navClick('Get in Touch')}
-            className="hidden md:inline-flex font-body items-center px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:opacity-70"
+            className="hidden md:inline-flex font-serif-display items-center px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 hover:opacity-70"
             style={{
               color: 'var(--warm-text)',
               border: '1.5px solid var(--warm-border)',
@@ -97,7 +102,7 @@ export function Nav() {
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            className="md:hidden font-body text-sm tracking-wide"
+            className="md:hidden font-serif-display text-sm tracking-wide"
             style={{ color: 'var(--warm-text-secondary)' }}
           >
             {mobileOpen ? 'Close' : 'Menu'}
@@ -114,7 +119,7 @@ export function Nav() {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={() => { ga.navClick(item); setMobileOpen(false) }}
-                  className="font-body text-lg"
+                  className="font-serif-display text-lg"
                   style={{ color: 'var(--warm-text)' }}
                 >
                   {item}
@@ -123,7 +128,7 @@ export function Nav() {
               <a
                 href="#contact"
                 onClick={() => { ga.navClick('Get in Touch'); setMobileOpen(false) }}
-                className="font-body text-lg"
+                className="font-serif-display text-lg"
                 style={{ color: 'var(--warm-accent)' }}
               >
                 Get in Touch
