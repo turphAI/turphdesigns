@@ -32,16 +32,16 @@ export const metadata: Metadata = {
     "AI interface design",
     "human-centered design",
   ],
-  authors: [{ name: "Tom Murphy", url: "https://turphdesigns.com" }],
+  authors: [{ name: "Tom Murphy", url: "https://www.turphdesigns.com" }],
   creator: "Tom Murphy",
-  metadataBase: new URL("https://turphdesigns.com"),
+  metadataBase: new URL("https://www.turphdesigns.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "TurphDesigns — Tom Murphy | Product Designer",
     description: "25+ years designing products at Amazon and Fidelity Investments. Every conversation becomes the interface.",
-    url: "https://turphdesigns.com",
+    url: "https://www.turphdesigns.com",
     siteName: "TurphDesigns",
     locale: "en_US",
     type: "website",
@@ -80,18 +80,18 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "WebSite",
-                  "@id": "https://turphdesigns.com/#website",
-                  "url": "https://turphdesigns.com",
+                  "@id": "https://www.turphdesigns.com/#website",
+                  "url": "https://www.turphdesigns.com",
                   "name": "TurphDesigns",
                   "description": "Product design consultancy founded by Tom Murphy.",
-                  "publisher": { "@id": "https://turphdesigns.com/#person" },
+                  "publisher": { "@id": "https://www.turphdesigns.com/#person" },
                 },
                 {
                   "@type": "Person",
-                  "@id": "https://turphdesigns.com/#person",
+                  "@id": "https://www.turphdesigns.com/#person",
                   "name": "Tom Murphy",
                   "alternateName": "Turph",
-                  "url": "https://turphdesigns.com",
+                  "url": "https://www.turphdesigns.com",
                   "jobTitle": "Product Designer",
                   "description": "Product designer with 25+ years of experience designing conversational AI interfaces. Formerly at Amazon (ProductAds, $0 to $250M revenue) and Fidelity Investments (Personal Investing).",
                   "knowsAbout": [
@@ -105,7 +105,7 @@ export default function RootLayout({
                   "worksFor": {
                     "@type": "Organization",
                     "name": "TurphDesigns",
-                    "url": "https://turphdesigns.com",
+                    "url": "https://www.turphdesigns.com",
                   },
                   "alumniOf": [
                     {
