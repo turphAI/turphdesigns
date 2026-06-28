@@ -1,7 +1,7 @@
 import { Nav } from '@/components/v2/nav'
 import { PageWithParallaxBg, HeroSection } from '@/components/v2/parallax-hero'
 import { EmbeddedChat } from '@/components/v2/embedded-chat'
-import { ContactLinks, FooterNav } from '@/components/v2/tracked-links'
+import { ContactLinks, FooterNav, DeckLink } from '@/components/v2/tracked-links'
 
 export default function HomeV2() {
   return (
@@ -170,6 +170,42 @@ export default function HomeV2() {
                   <span>AI-powered interfaces</span>
                   <span>Regulated environment</span>
                   <span>Complex financial data</span>
+                </div>
+              </div>
+
+              {/* turph Card — built independently, links to the deck */}
+              <div className="v2-card-hover rounded-2xl p-10 md:p-12 md:col-span-2"
+                   style={{
+                     backgroundColor: 'var(--warm-surface)',
+                     border: '1px solid var(--warm-border)',
+                   }}>
+                <div className="grid md:grid-cols-[1fr_1.3fr] gap-8 md:gap-12 items-start">
+                  <div>
+                    <p className="font-serif-display text-xs tracking-widest uppercase mb-6"
+                       style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
+                      turph
+                    </p>
+                    <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
+                        style={{ letterSpacing: '-0.02em' }}>
+                      A personal software suite
+                    </h3>
+                    <DeckLink />
+                  </div>
+                  <div>
+                    <p className="font-body text-base leading-relaxed mb-8"
+                       style={{ color: 'var(--warm-text-secondary)' }}>
+                      Built independently, end to end — product thinking through design, code, and
+                      deployment. A household run like a company: small producer apps feeding one
+                      consumption surface, kept current by a thin layer of autonomous agents. Private
+                      by construction, running in production, and still evolving.
+                    </p>
+                    <div className="flex flex-wrap gap-x-8 gap-y-3 font-serif-display text-sm"
+                         style={{ color: 'var(--warm-text-muted)' }}>
+                      <span>Design → deployment</span>
+                      <span>6 apps, one surface</span>
+                      <span>Live in production</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

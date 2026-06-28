@@ -49,4 +49,7 @@ export const ga = {
 
   footerNavClick: (item: string) =>
     trackEvent({ action: 'footer_nav_click', category: 'navigation', label: item }),
+
+  projectClick: (label: string) =>
+    trackEvent({ action: 'project_click', category: 'engagement', label }),
 }
