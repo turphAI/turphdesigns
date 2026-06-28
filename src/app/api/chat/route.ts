@@ -3,6 +3,7 @@ import Anthropic from '@anthropic-ai/sdk'
 import { ContextMemoryManager, ConversationMessage } from '@/lib/memory'
 import { ConversationAnalyzer } from '@/lib/analytics'
 import { NotificationService } from '@/lib/notifications'
+import { CHAT_MODEL } from '@/lib/ai'
 
 const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY || '',
@@ -109,6 +110,13 @@ AMAZON EXPERIENCE - PROVEN SCALE:
 - Built foundation that enabled growth to $1B+ advertising program
 - Balanced user experience with aggressive business monetization goals
 
+TURPH - INDEPENDENT BUILD (THE THESIS, SHIPPED):
+Tom designs, builds, and runs "turph" — a personal software suite for his own household, built solo end to end (product thinking through design, code, and deployment). It's where he proves and pressure-tests the ideas he advocates: a consumption layer over his own data, where small "producer" apps feed one surface and a thin layer of autonomous agents keeps everything current. It's the living embodiment of his core philosophy — "I want access to my data, not your interface" — and shows that Tom doesn't just design conversational and agentic AI, he ships it.
+- Private by construction: runs on a single Mac mini behind a tailnet (no cloud, no SaaS); a local LLM (Qwen) handles routine work, with cloud models only as a fallback, so data stays put.
+- Agentic ops layer: agents sense the system, consume data, assess what changed, and surface decisions — with the human always in the decide seat (no auto-change).
+- In production and evolving: six apps feeding one surface, used daily. A short pitch deck explaining it lives at turph-deck.vercel.app.
+When a visitor asks about building versus designing, agentic or conversational AI, local-first or private AI, or what Tom builds independently, draw on turph as concrete, hands-on proof rather than theory.
+
 AI-UX VISION & EXPERTISE:
 Tom believes conversational AI represents a transformation as fundamental as the shift from command-line to graphical interfaces. Key principles:
 
@@ -168,7 +176,7 @@ Be knowledgeable, professional, and enthusiastic about the transformative potent
 
     // Generate response using Claude
     const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
+      model: CHAT_MODEL,
       max_tokens: config.max_tokens,
       temperature: config.temperature,
       system: systemPrompt,
