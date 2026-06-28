@@ -2,6 +2,8 @@ import { Nav } from '@/components/v2/nav'
 import { PageWithParallaxBg, HeroSection } from '@/components/v2/parallax-hero'
 import { EmbeddedChat } from '@/components/v2/embedded-chat'
 import { ContactLinks, FooterNav } from '@/components/v2/tracked-links'
+import { WorkCarousel } from '@/components/v2/work-carousel'
+import { WORK_PROJECTS } from '@/lib/work-projects'
 
 export default function HomeV2() {
   return (
@@ -111,68 +113,12 @@ export default function HomeV2() {
               </p>
               <h2 className="font-serif-display text-3xl md:text-5xl font-medium tracking-tight leading-tight"
                   style={{ letterSpacing: '-0.02em' }}>
-                Products that scaled from{' '}<br className="hidden md:block" />
-                zero to hundreds of millions.
+                Products that scaled to millions —{' '}<br className="hidden md:block" />
+                and software I build end to end.
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-              {/* Amazon Card */}
-              <div className="v2-card-hover rounded-2xl p-10 md:p-12"
-                   style={{
-                     backgroundColor: 'var(--warm-surface)',
-                     border: '1px solid var(--warm-border)',
-                   }}>
-                <p className="font-serif-display text-xs tracking-widest uppercase mb-6"
-                   style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
-                  Amazon
-                </p>
-                <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
-                    style={{ letterSpacing: '-0.02em' }}>
-                  ProductAds
-                </h3>
-                <p className="font-body text-base leading-relaxed mb-8"
-                   style={{ color: 'var(--warm-text-secondary)' }}>
-                  Sole UX designer from day one. I shaped every customer-facing component and
-                  merchant tool as the team grew from fewer than 20 people to over 200 — and
-                  revenue went from nothing to $250M annually. That foundation became a $1B+ program.
-                </p>
-                <div className="flex flex-wrap gap-x-8 gap-y-3 font-serif-display text-sm"
-                     style={{ color: 'var(--warm-text-muted)' }}>
-                  <span>$0 → $250M revenue</span>
-                  <span>20 → 200+ team</span>
-                  <span>Foundation for $1B+</span>
-                </div>
-              </div>
-
-              {/* Fidelity Card */}
-              <div className="v2-card-hover rounded-2xl p-10 md:p-12"
-                   style={{
-                     backgroundColor: 'var(--warm-surface)',
-                     border: '1px solid var(--warm-border)',
-                   }}>
-                <p className="font-serif-display text-xs tracking-widest uppercase mb-6"
-                   style={{ color: 'var(--warm-text-muted)', letterSpacing: '0.16em', fontWeight: 500 }}>
-                  Fidelity Investments
-                </p>
-                <h3 className="font-serif-display text-2xl md:text-3xl font-medium mb-6 tracking-tight"
-                    style={{ letterSpacing: '-0.02em' }}>
-                  Personal Investing
-                </h3>
-                <p className="font-body text-base leading-relaxed mb-8"
-                   style={{ color: 'var(--warm-text-secondary)' }}>
-                  Director of UX Design, working at the intersection of AI and personal finance.
-                  Leading the design of transaction experiences, money movement, account opening,
-                  and the AI-powered Fidelity Assistant that helps millions navigate their financial lives.
-                </p>
-                <div className="flex flex-wrap gap-x-8 gap-y-3 font-serif-display text-sm"
-                     style={{ color: 'var(--warm-text-muted)' }}>
-                  <span>AI-powered interfaces</span>
-                  <span>Regulated environment</span>
-                  <span>Complex financial data</span>
-                </div>
-              </div>
-            </div>
+            <WorkCarousel projects={WORK_PROJECTS} />
           </div>
         </section>
 
