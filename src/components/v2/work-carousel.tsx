@@ -4,14 +4,7 @@ import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react'
 import { ga } from '@/lib/ga'
-
-export type WorkProject = {
-  eyebrow: string
-  title: string
-  body: string
-  metrics: string[]
-  deckHref?: string
-}
+import type { WorkProject } from '@/lib/work-projects'
 
 /**
  * Swipeable "Where I've Built" carousel. Keeps the section compact so the
