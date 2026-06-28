@@ -41,23 +41,6 @@ export function ContactLinks() {
 }
 
 /**
- * Pitch-deck link with GA tracking (used in the Work section).
- */
-export function DeckLink() {
-  return (
-    <a href="https://turph-deck.vercel.app/"
-       target="_blank"
-       rel="noopener noreferrer"
-       onClick={() => ga.projectClick('turph_deck')}
-       className="font-serif-display inline-flex items-center gap-2 text-base font-medium transition-opacity hover:opacity-60"
-       style={{ color: 'var(--warm-accent)' }}>
-      View the pitch deck
-      <ArrowUpRight className="w-4 h-4" />
-    </a>
-  )
-}
-
-/**
  * Footer nav links with GA event tracking.
  */
 export function FooterNav() {
