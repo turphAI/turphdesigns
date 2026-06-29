@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, DM_Sans, Newsreader } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -131,6 +132,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <Analytics />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2NSF2ZPEZP"
           strategy="afterInteractive"
