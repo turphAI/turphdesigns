@@ -14,3 +14,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: gitleaks/gitleaks-action@v2
+        env:
+          # Required for pull_request-triggered scans; without it the action
+          # aborts before scanning (gitleaks-action v2 breaking change).
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
