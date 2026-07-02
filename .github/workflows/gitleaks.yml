@@ -1,0 +1,16 @@
+name: gitleaks
+# Secret scanning for turphdesigns.com (public, Vercel). CI-native because the
+# ops-loop sweep can't reach this repo. Full-history scan (fetch-depth 0) — on a
+# public repo a secret committed anywhere in history is exposed. gitleaks-action
+# is license-free for public repositories. See turphPWA design-journal 028.
+on:
+  push:
+  pull_request:
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
