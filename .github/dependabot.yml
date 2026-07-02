@@ -1,0 +1,10 @@
+version: 2
+# Dependency scanning for turphdesigns.com (public, Vercel). The ops-loop sweep
+# can't reach this repo (off-tailnet), so coverage is CI-native — Dependabot opens
+# PRs for vulnerable/outdated npm deps. See turphPWA design-journal 028.
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
