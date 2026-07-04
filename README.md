@@ -165,6 +165,10 @@ npm start
 - Efficient state management
 - Lazy loading components
 
+## 🗒 Backlog
+
+- **Chat response-mode toggle**: the chat API accepts a `responseMode` parameter (`brief`/`default`/`detailed`, see `src/app/api/chat/route.ts`), but the embedded chat UI never sends it. Add a small UI control to expose it, or remove the unused parameter.
+
 ## 🤝 Contributing
 
 1. Fork the repository
