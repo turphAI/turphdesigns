@@ -4,6 +4,12 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ga } from '@/lib/ga'
 
+const NAV_ITEMS = [
+  { label: 'Work', id: 'work' },
+  { label: 'About', id: 'about' },
+  { label: 'Ask Turph', id: 'ask' },
+]
+
 export function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -22,7 +28,7 @@ export function Nav() {
 
   // Scroll-spy: update URL hash as sections enter the viewport
   useEffect(() => {
-    const sectionIds = ['work', 'about', 'approach', 'contact']
+    const sectionIds = ['work', 'about', 'ask', 'contact']
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -70,10 +76,10 @@ export function Nav() {
 
           {/* Desktop Nav */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-10">
-            {['Work', 'About', 'Approach'].map((item) => (
+            {NAV_ITEMS.map(({ label: item, id }) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`#${id}`}
                 onClick={() => ga.navClick(item)}
                 className="font-serif-display text-sm tracking-wide transition-opacity duration-200 hover:opacity-60"
                 style={{ color: 'var(--warm-text-secondary)' }}
@@ -114,10 +120,10 @@ export function Nav() {
           <div className="md:hidden pb-8 pt-2 border-t"
                style={{ borderColor: 'var(--warm-border)' }}>
             <nav id="mobile-nav" aria-label="Mobile navigation" className="flex flex-col gap-6 pt-6">
-              {['Work', 'About', 'Approach'].map((item) => (
+              {NAV_ITEMS.map(({ label: item, id }) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${id}`}
                   onClick={() => { ga.navClick(item); setMobileOpen(false) }}
                   className="font-serif-display text-lg"
                   style={{ color: 'var(--warm-text)' }}
