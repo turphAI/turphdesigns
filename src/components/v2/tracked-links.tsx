@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { ga } from '@/lib/ga'
 
@@ -45,7 +46,7 @@ export function ContactLinks() {
  */
 export function FooterNav() {
   return (
-    <div className="flex gap-8 font-serif-display text-sm">
+    <div className="flex flex-wrap gap-x-8 gap-y-3 font-serif-display text-sm">
       {[
         { label: 'Work', id: 'work' },
         { label: 'About', id: 'about' },
@@ -58,6 +59,17 @@ export function FooterNav() {
            className="transition-opacity hover:opacity-60">
           {label}
         </a>
+      ))}
+      {[
+        { label: 'Privacy', href: '/privacy' },
+        { label: 'Terms', href: '/terms' },
+      ].map(({ label, href }) => (
+        <Link key={href}
+              href={href}
+              onClick={() => ga.footerNavClick(label)}
+              className="transition-opacity hover:opacity-60">
+          {label}
+        </Link>
       ))}
     </div>
   )
