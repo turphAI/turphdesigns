@@ -51,7 +51,7 @@ export default function TermsPage() {
 
       <H2>Changes and governing law</H2>
       <p>I may update these terms by changing the date above; continued use means you accept the update.
-        These terms are governed by the laws of the United States and the state in which I reside.</p>
+        These terms are governed by the laws of the State of New Hampshire, without regard to its conflict-of-laws rules.</p>
 
       <H2>Contact</H2>
       <p>Questions: <a href="mailto:turphs.ai@gmail.com" style={{ color: 'var(--warm-accent)' }}>turphs.ai@gmail.com</a></p>
