@@ -49,7 +49,7 @@ export function FooterNav() {
       {[
         { label: 'Work', id: 'work' },
         { label: 'About', id: 'about' },
-        { label: 'Approach', id: 'approach' },
+        { label: 'Ask', id: 'ask' },
         { label: 'Get in Touch', id: 'contact' },
       ].map(({ label, id }) => (
         <a key={id}

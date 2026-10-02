@@ -126,7 +126,7 @@ export default function HomeV2() {
             CARD SECTION: AI Chat
             Illustration bleeds through. Card floats.
             ════════════════════════════════════════════ */}
-        <section id="approach" className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
+        <section id="ask" className="px-6 lg:px-8 pt-24 md:pt-32 pb-24 md:pb-32">
           <div className="max-w-[900px] mx-auto rounded-3xl py-16 md:py-20 px-8 md:px-16"
                style={{
                  backgroundColor: 'rgba(255, 255, 255, 0.92)',

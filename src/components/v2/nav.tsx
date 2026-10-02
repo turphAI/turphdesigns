@@ -22,7 +22,7 @@ export function Nav() {
 
   // Scroll-spy: update URL hash as sections enter the viewport
   useEffect(() => {
-    const sectionIds = ['work', 'about', 'approach', 'contact']
+    const sectionIds = ['work', 'about', 'ask', 'contact']
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -70,7 +70,7 @@ export function Nav() {
 
           {/* Desktop Nav */}
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-10">
-            {['Work', 'About', 'Approach'].map((item) => (
+            {['Work', 'About', 'Ask'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -114,7 +114,7 @@ export function Nav() {
           <div className="md:hidden pb-8 pt-2 border-t"
                style={{ borderColor: 'var(--warm-border)' }}>
             <nav id="mobile-nav" aria-label="Mobile navigation" className="flex flex-col gap-6 pt-6">
-              {['Work', 'About', 'Approach'].map((item) => (
+              {['Work', 'About', 'Ask'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
